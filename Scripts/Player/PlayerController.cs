@@ -71,7 +71,7 @@ public partial class PlayerController : Node3D
 					GD.Print("dY = " + dY);
 					// Handle Jump.
 					if (Input.IsActionJustPressed("jump")) {
-						Velocity.Y += JumpVelocity;
+						velocity.Y += JumpVelocity;
 						float abs = springForce * JumpVelocity;
 						dY += new Vector3(0, Math.Abs(abs), 0);
 					}
@@ -103,6 +103,7 @@ public partial class PlayerController : Node3D
 		}
 		Move();
 		Rotate(delta);
+		Velocity = velocity;
 	}
 
 	private void Rotate(double delta) 
