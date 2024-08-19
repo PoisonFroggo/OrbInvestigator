@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\programming\\godot\\projects\\OrbInvestigator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9D186285-BE2A-417A-B214-65DF39DFCF7A}|Orb_Investigator.csproj|d:\\programming\\godot\\projects\\orbinvestigator\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D186285-BE2A-417A-B214-65DF39DFCF7A}|Orb_Investigator.csproj|solutionrelative:scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D186285-BE2A-417A-B214-65DF39DFCF7A}|Orb_Investigator.csproj|d:\\programming\\godot\\projects\\orbinvestigator\\scripts\\player\\mbns_player_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D186285-BE2A-417A-B214-65DF39DFCF7A}|Orb_Investigator.csproj|solutionrelative:scripts\\player\\mbns_player_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "D:\\programming\\godot\\projects\\OrbInvestigator\\Scripts\\Player\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Scripts\\Player\\PlayerController.cs",
+              "ToolTip": "D:\\programming\\godot\\projects\\OrbInvestigator\\Scripts\\Player\\PlayerController.cs",
+              "RelativeToolTip": "Scripts\\Player\\PlayerController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAI4AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T20:55:53.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "mbns_player_controller.cs",
+              "DocumentMoniker": "D:\\programming\\godot\\projects\\OrbInvestigator\\Scripts\\Player\\mbns_player_controller.cs",
+              "RelativeDocumentMoniker": "Scripts\\Player\\mbns_player_controller.cs",
+              "ToolTip": "D:\\programming\\godot\\projects\\OrbInvestigator\\Scripts\\Player\\mbns_player_controller.cs",
+              "RelativeToolTip": "Scripts\\Player\\mbns_player_controller.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAiwCkAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T20:52:01.838Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

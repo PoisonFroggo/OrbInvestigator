@@ -326,7 +326,7 @@ public partial class mbns_player_controller : Node3D
 	{
 		if(Input.MouseMode == Input.MouseModeEnum.Visible)
 		{
-			Input.MouseMode =Input.MouseModeEnum.Captured;
+			Input.MouseMode = Input.MouseModeEnum.Captured;
 		}
 		else 
 		{

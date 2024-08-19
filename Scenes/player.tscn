@@ -25,5 +25,6 @@ shape = SubResource("SphereShape3D_bj8cu")
 [node name="RayCastGrounded" type="RayCast3D" parent="PlayerRigidbody/PlayerCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.396505, 0)
 target_position = Vector3(0, -10, 0)
+debug_shape_thickness = 5
 
 [node name="PlayerCam" type="Camera3D" parent="PlayerRigidbody"]
