@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cud3t2vyil57k"]
+
+[ext_resource type="Script" path="res://Scripts/Player/player_new.gd" id="1_a6bp1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_68puk"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_a6bp1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_68puk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="debugHud" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="debugHud"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="playerPosition" type="Label" parent="debugHud/VBoxContainer"]
+layout_mode = 2
+
+[node name="playerRotation" type="Label" parent="debugHud/VBoxContainer"]
+layout_mode = 2
+
+[node name="playerVelocity" type="Label" parent="debugHud/VBoxContainer"]
+layout_mode = 2
+
+[node name="moveSpeed" type="Label" parent="debugHud/VBoxContainer"]
+layout_mode = 2
+
+[node name="currentFPS" type="Label" parent="debugHud/VBoxContainer"]
+layout_mode = 2

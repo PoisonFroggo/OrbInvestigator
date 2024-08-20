@@ -4,7 +4,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bj8cu"]
 
-[node name="Player" type="Node3D" node_paths=PackedStringArray("GroundHeightRay", "CameraNode", "PlayerRoot")]
+[node name="Player" type="Node3D" node_paths=PackedStringArray("GroundHeightRay", "CameraNode", "PlayerRoot") groups=["player"]]
 script = ExtResource("1_xsyys")
 GroundHeightRay = NodePath("PlayerRigidbody/PlayerCollider/RayCastGrounded")
 CameraNode = NodePath("PlayerRigidbody/PlayerCam")
@@ -28,3 +28,10 @@ target_position = Vector3(0, -10, 0)
 debug_shape_thickness = 5
 
 [node name="PlayerCam" type="Camera3D" parent="PlayerRigidbody"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 446.0
+offset_bottom = 200.0
+metadata/_edit_use_anchors_ = true
