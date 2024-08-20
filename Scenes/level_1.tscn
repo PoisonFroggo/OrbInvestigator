@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpe7hv2gj8sxf"]
 
 [ext_resource type="PackedScene" uid="uid://7107aa6nvsam" path="res://Scenes/ground.tscn" id="1_4mijs"]
-[ext_resource type="PackedScene" uid="uid://cuslniubs5p25" path="res://Scenes/player.tscn" id="2_yphdt"]
 [ext_resource type="PackedScene" uid="uid://bmxn3j28b8kak" path="res://Scenes/enemy.tscn" id="3_iu837"]
+[ext_resource type="PackedScene" uid="uid://cud3t2vyil57k" path="res://Scenes/player_new.tscn" id="4_gxxp7"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5xw7o"]
 vertices = PackedVector3Array(-49, 1.5, -22.5, -24, 1.5, -22.5, -24, 1.5, -23, -22.25, 1.5, -24.25, -22.25, 1.5, -49, -49, 1.5, -49, -21, 1.5, -23.75, -18.75, 1.5, -21.5, -15.75, 1.5, -19.5, 15.5, 1.5, -23.5, 16.25, 1.5, -23.5, 16.25, 1.5, -49, 14.75, 1.5, -22.75, -10.25, 1.5, -14.5, 14.75, 1.5, -14.5, 17.25, 1.5, -23.5, 18, 1.5, -22.75, 49, 1.5, -20.75, 49, 1.5, -49, 18, 1.5, -20.75, -12.75, 1.5, -12.5, -19, 1.5, -18, -22, 1.5, -20, -1.5, 1.5, 3, -11.75, 1.5, -12.5, -1.5, 1.5, 15.5, -49, 1.5, 15.5, 18, 1.5, -9.75, 49, 1.5, -9.75, 1.75, 1.5, 3, 15.75, 1.5, -7, 14.75, 1.5, -7.75, 1, 1.5, 2, -0.5, 1.5, 2, -10.5, 1.5, -13.75, 34.75, 1.5, 12.75, 36, 1.5, 14.5, 49, 1.5, 14.5, 18, 1.5, -8, 32.25, 1.5, 14.5, 33.75, 1.5, 12.75, 17.25, 1.5, -7, 1.75, 1.5, 17.25, 29, 1.5, 18.75, 35.75, 1.5, 15.5, 28, 1.5, 25.75, 26.5, 1.5, 26.75, 26.5, 1.5, 49, 49, 1.5, 49, 0, 1.5, 49, 0, 1.5, 18.25, -0.75, 1.5, 18.25, -1.5, 1.5, 17.5, -49, 1.5, 49, 24.5, 1.5, 24.75, 0.75, 1.5, 18.25, 24.5, 1.5, 25.5)
@@ -15,12 +15,14 @@ size = Vector2(100, 100)
 
 [node name="Level1" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.633381, -0.27732, 0.722442, 0, 0.93358, 0.358368, -0.77384, 0.226983, -0.591312, 0, 0, 0)
+shadow_enabled = true
+
 [node name="Ground" parent="." instance=ExtResource("1_4mijs")]
 
-[node name="Player" parent="." instance=ExtResource("2_yphdt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61794, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("4_gxxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.967, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("3_iu837")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50503, -2.58781)
