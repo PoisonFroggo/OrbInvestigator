@@ -24,8 +24,9 @@ shadow_enabled = true
 [node name="Player" parent="." groups=["player"] instance=ExtResource("4_gxxp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.967, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("3_iu837")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50503, -2.58781)
+[node name="Enemy" parent="." node_paths=PackedStringArray("waypoints_container") instance=ExtResource("3_iu837")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2663, 1.50503, 20.7869)
+waypoints_container = NodePath("../Waypoints")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5xw7o")
@@ -52,3 +53,29 @@ size = Vector3(1, 3.80676, 14.0184)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
 mesh = SubResource("PlaneMesh_c0of0")
+
+[node name="Waypoints" type="Node" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67568, 0.5, 36.9473)
+gizmo_extents = 2.5
+
+[node name="Marker3D2" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1862, 0.5, 22.819)
+gizmo_extents = 2.5
+
+[node name="Marker3D3" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6604, 0.5, 2.29751)
+gizmo_extents = 2.5
+
+[node name="Marker3D4" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.01414, 0.5, -34.1858)
+gizmo_extents = 2.5
+
+[node name="Marker3D5" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2728, 0.5, -10.657)
+gizmo_extents = 2.5
+
+[node name="Marker3D6" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2728, 0.5, 31.5897)
+gizmo_extents = 2.5

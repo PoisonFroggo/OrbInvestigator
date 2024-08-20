@@ -24,7 +24,7 @@ var defaultSpeed: float = moveSpeed
 
 func process_debug_hud() -> void:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))
-	var roundRot: Vector3 = Vector3(snappedf($Camera3D.global_rotation.x, 0.01), snappedf($Camera3D.global_rotation.y, 0.01), snappedf($Camera3D.global_rotation.z, 0.01))
+	var roundRot: Vector3 = Vector3(snappedf($Camera3D.global_rotation_degrees.x, 0.01), snappedf($Camera3D.global_rotation_degrees.y, 0.01), snappedf($Camera3D.global_rotation_degrees.z, 0.01))
 	var roundVel: Vector3 = Vector3(snappedf(self.velocity.x, 0.01), snappedf(self.velocity.y, 0.01), snappedf(self.velocity.z, 0.01))
 	$debugHud/VBoxContainer/playerPosition.text = "Position: {playerPos}".format({"playerPos": roundPos})
 	$debugHud/VBoxContainer/playerRotation.text = "Rotation: {playerRot}".format({"playerRot": roundRot})
@@ -50,17 +50,16 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		var new_velocity: Vector3 = Vector3.ZERO
-		if Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run") and is_on_floor():
 			moveSpeed = lerpf(moveSpeed, runSpeed, runSmoothing)
 		else:
 			moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
+
 		new_velocity.x = direction.x * moveSpeed
 		new_velocity.z = direction.z * moveSpeed
 		
 		velocity.x = lerpf(velocity.x, new_velocity.x, inertiaPower)
 		velocity.z = lerpf(velocity.z, new_velocity.z, inertiaPower)
-		#velocity.x = direction.x * moveSpeed
-		#velocity.z = direction.z * moveSpeed
 	else:
 		# Smoothly getting player to lose velocity when movement isn't present and player is not in air
 		if is_on_floor():
@@ -71,7 +70,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	# Handle rotation of the mouse
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# Rotate camera vertically depending on relative speed of the mouse
 		$Camera3D.rotate_x(deg_to_rad(-event.relative.y) * rotationSpeed)
 		# Rotate player horizontally depending on relative speed of the mouse
