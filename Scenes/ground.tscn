@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://7107aa6nvsam"]
+
+[ext_resource type="PackedScene" uid="uid://b3jwtj1evu0ky" path="res://Assets/Ground.glb" id="1_7bwd0"]
+
+[node name="Ground" instance=ExtResource("1_7bwd0")]

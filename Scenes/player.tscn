@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuslniubs5p25"]
+
+[ext_resource type="Script" path="res://Scripts/Player/PlayerController.cs" id="1_xsyys"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bj8cu"]
+
+[node name="Player" type="Node3D" node_paths=PackedStringArray("GroundHeightRay", "CameraNode", "PlayerRoot")]
+script = ExtResource("1_xsyys")
+GroundHeightRay = NodePath("PlayerRigidbody/PlayerCollider/RayCastGrounded")
+CameraNode = NodePath("PlayerRigidbody/PlayerCam")
+Speed = 40.0
+PlayerRoot = NodePath("PlayerRigidbody")
+
+[node name="PlayerRigidbody" type="RigidBody3D" parent="."]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+continuous_cd = true
+
+[node name="PlayerCollider" type="CollisionShape3D" parent="PlayerRigidbody"]
+transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 0, 0, 0)
+shape = SubResource("SphereShape3D_bj8cu")
+
+[node name="RayCastGrounded" type="RayCast3D" parent="PlayerRigidbody/PlayerCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.396505, 0)
+target_position = Vector3(0, -10, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="PlayerRigidbody"]
