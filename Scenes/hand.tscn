@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://3x02w27qxqy8"]
+
+[ext_resource type="PackedScene" uid="uid://b6ncq486744uv" path="res://Assets/test.gltf" id="1_u014g"]
+[ext_resource type="Script" path="res://Scripts/Player/hand.gd" id="2_h1btp"]
+
+[node name="hand" instance=ExtResource("1_u014g")]
+script = ExtResource("2_h1btp")
+
+[node name="arm" parent="Node/hand" index="0"]
+layers = 2
+
+[node name="palm" parent="Node/hand/palm2" index="0"]
+layers = 2
+
+[node name="thumb" parent="Node/hand/palm2/fingers/thumb2" index="0"]
+layers = 2
+
+[node name="top_finger" parent="Node/hand/palm2/fingers/top_finger2" index="0"]
+layers = 2
+
+[node name="bottom_finger" parent="Node/hand/palm2/fingers/bottom_finger2" index="0"]
+layers = 2

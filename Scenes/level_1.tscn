@@ -21,7 +21,7 @@ shadow_enabled = true
 
 [node name="Ground" parent="." instance=ExtResource("1_4mijs")]
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("4_gxxp7")]
+[node name="Player" parent="." instance=ExtResource("4_gxxp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.967, 0)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("waypoints_container") instance=ExtResource("3_iu837")]
@@ -31,22 +31,22 @@ waypoints_container = NodePath("../Waypoints")
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5xw7o")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05954, 10.0936)
 use_collision = true
 size = Vector3(1, 3.80676, 14.0184)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D" groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2926, 2.05954, -15.2504)
 use_collision = true
 size = Vector3(1, 3.80676, 14.0184)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D" groups=["wall"]]
 transform = Transform3D(0.7973, 0, -0.603584, 0, 1, 0, 0.603584, 0, 0.7973, 30.3474, 2.05954, 19.7203)
 use_collision = true
 size = Vector3(1, 3.80676, 14.0184)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D" groups=["wall"]]
 transform = Transform3D(0.630717, 0, 0.776013, 0, 1, 0, -0.776013, 0, 0.630717, -17.1805, 2.05954, -18.3756)
 use_collision = true
 size = Vector3(1, 3.80676, 14.0184)
