@@ -20,6 +20,8 @@ class_name Player
 var runSpeed: float = moveSpeed * runPower
 var defaultSpeed: float = moveSpeed
 
+var tempDirection: Vector3
+
 @export var viewmodel: Camera3D
 
 @onready var debugHud: CanvasLayer = $debugHud
@@ -44,7 +46,32 @@ func _process(_delta: float) -> void:
 		process_debug_hud()
 
 func _physics_process(delta: float) -> void:
-	
+	# Get the input direction and handle the movement/deceleration.
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var new_velocity := Vector3.ZERO
+	if direction:
+		tempDirection = direction
+		# Handle changing speeds between running and walking
+		if Input.is_action_pressed("run") and is_on_floor():
+			moveSpeed = lerpf(moveSpeed, runSpeed, runSmoothing)
+		else:
+			moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
+		# Smoothly making player move between speed changes
+		new_velocity = Vector3(direction.x * moveSpeed, velocity.y, direction.z * moveSpeed)
+		velocity = velocity.lerp(new_velocity, inertiaPower)
+	else:
+		# Smoothly getting player to lose velocity when movement isn't present and player is not in air
+		if is_on_floor():
+			tempDirection = Vector3.ZERO
+			velocity = velocity.lerp(Vector3(0, velocity.y, 0), inertiaPower)
+		# If player has no direction set then lerp current moveSpeed towards defaultSpeed
+		moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
+		
+		# If direction isn't applied move towards last remembered direction
+		new_velocity = Vector3(tempDirection.x * moveSpeed, velocity.y, tempDirection.z * moveSpeed)
+		velocity = velocity.lerp(new_velocity, inertiaPower)
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -53,25 +80,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jumpHeight
 
-	# Get the input direction and handle the movement/deceleration.
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		var new_velocity := Vector3.ZERO
-		# Handle changing speeds between running and walking
-		if Input.is_action_pressed("run") and is_on_floor():
-			moveSpeed = lerpf(moveSpeed, runSpeed, runSmoothing)
-		else:
-			moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
-		# Smoothly making player move between speed changes
-		# FIX make new_velocity apply moveSpeed at the time of jump and apply current moveSpeed if new direction is pressed
-		new_velocity = Vector3(direction.x * moveSpeed, velocity.y, direction.z * moveSpeed)
-		velocity = velocity.lerp(new_velocity, inertiaPower)
-	else:
-		# Smoothly getting player to lose velocity when movement isn't present and player is not in air
-		if is_on_floor():
-			velocity = velocity.lerp(Vector3(0, velocity.y, 0), inertiaPower)
-		moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
