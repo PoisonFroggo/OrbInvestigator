@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d10lqeuqhjlth"]
+
+[ext_resource type="PackedScene" uid="uid://3x02w27qxqy8" path="res://Scenes/hand.tscn" id="1_8eorp"]
+
+[node name="Viewmodel" type="Camera3D"]
+cull_mask = 2
+
+[node name="hand" parent="." instance=ExtResource("1_8eorp")]
+transform = Transform3D(4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, 0.402119, -0.50359, -0.731994)

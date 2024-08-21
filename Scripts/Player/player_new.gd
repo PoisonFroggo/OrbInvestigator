@@ -20,7 +20,10 @@ class_name Player
 var runSpeed: float = moveSpeed * runPower
 var defaultSpeed: float = moveSpeed
 
+@export var viewmodel: Camera3D
+
 @onready var debugHud: CanvasLayer = $debugHud
+@onready var interact_ray: RayCast3D = $Camera3D/InteractRay
 
 func process_debug_hud() -> void:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))
@@ -33,10 +36,15 @@ func process_debug_hud() -> void:
 	$debugHud/VBoxContainer/currentFPS.text = "FPS: {fps}".format({"fps": snapped(Engine.get_frames_per_second(), 0.01)})
 
 func _process(_delta: float) -> void:
+	# Move viewmodel cam to same in-world position as player cam
+	if viewmodel != null:
+		viewmodel.global_transform = $Camera3D.global_transform
+	
 	if OS.is_debug_build():
 		process_debug_hud()
 
 func _physics_process(delta: float) -> void:
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -49,22 +57,20 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		var new_velocity: Vector3 = Vector3.ZERO
+		var new_velocity := Vector3.ZERO
+		# Handle changing speeds between running and walking
 		if Input.is_action_pressed("run") and is_on_floor():
 			moveSpeed = lerpf(moveSpeed, runSpeed, runSmoothing)
 		else:
 			moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
-
-		new_velocity.x = direction.x * moveSpeed
-		new_velocity.z = direction.z * moveSpeed
-		
-		velocity.x = lerpf(velocity.x, new_velocity.x, inertiaPower)
-		velocity.z = lerpf(velocity.z, new_velocity.z, inertiaPower)
+		# Smoothly making player move between speed changes
+		# FIX make new_velocity apply moveSpeed at the time of jump and apply current moveSpeed if new direction is pressed
+		new_velocity = Vector3(direction.x * moveSpeed, velocity.y, direction.z * moveSpeed)
+		velocity = velocity.lerp(new_velocity, inertiaPower)
 	else:
 		# Smoothly getting player to lose velocity when movement isn't present and player is not in air
 		if is_on_floor():
-			velocity.x = lerpf(velocity.x, 0, inertiaPower)
-			velocity.z = lerpf(velocity.z, 0, inertiaPower)
+			velocity = velocity.lerp(Vector3(0, velocity.y, 0), inertiaPower)
 		moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
 	move_and_slide()
 
@@ -77,3 +83,9 @@ func _input(event: InputEvent) -> void:
 		self.rotate_y(deg_to_rad(-event.relative.x) * rotationSpeed)
 		# Clamp camera in vertical projection by verticalLookCap
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, deg_to_rad(-verticalLookCap), deg_to_rad(verticalLookCap))
+	# Interaction placeholder
+	if Input.is_action_just_pressed("interact"):
+		if interact_ray.is_colliding():
+			var interacted_groups: Array[StringName] = interact_ray.get_collider().get_groups()
+			if StringName("wall") in interacted_groups:
+				print("hit wall")
