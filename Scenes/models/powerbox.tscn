@@ -1,36 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm1dsrj2exxau"]
+[gd_scene load_steps=4 format=3 uid="uid://b8noabs50pwgx"]
 
 [ext_resource type="PackedScene" uid="uid://cq05i4f2j5ry4" path="res://Assets/Powerbox.glb" id="1_0x3a4"]
+[ext_resource type="Script" path="res://Scripts/powerbox.gd" id="2_dummv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ncis4"]
+size = Vector3(0.517563, 0.834869, 0.39624)
 
 [node name="Powerbox" instance=ExtResource("1_0x3a4")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/position = Vector3(-2.98023e-07, 0.235864, -2.98023e-07)
-bones/2/position = Vector3(0.21, -0.00771774, -0.357966)
-bones/2/rotation = Quaternion(0, -1.11022e-16, 8.82255e-25, 1)
-bones/4/position = Vector3(0.21, -0.00771775, 0.39081)
-bones/4/rotation = Quaternion(0, -1.11022e-16, 8.82255e-25, 1)
-bones/6/position = Vector3(-0.21, -0.00771775, 0.39081)
-bones/6/rotation = Quaternion(0, -1.11022e-16, 8.82255e-25, 1)
-bones/8/position = Vector3(-0.21, -0.00771777, -0.357966)
-bones/8/rotation = Quaternion(0, -1.11022e-16, 8.82255e-25, 1)
+bones/1/position = Vector3(4.80498e-16, -0.0901245, 0.184415)
+bones/2/position = Vector3(0.21, 0.0252996, -0.357966)
+bones/2/rotation = Quaternion(-6.61744e-24, -5.96046e-08, -1.77636e-15, 1)
+bones/4/position = Vector3(0.21, 0.0252995, 0.39081)
+bones/4/rotation = Quaternion(-9.92617e-24, -8.74228e-08, 1.08084e-23, 1)
+bones/6/position = Vector3(-0.21, 0.0252995, 0.39081)
+bones/6/rotation = Quaternion(-9.92617e-24, -8.74228e-08, 1.08084e-23, 1)
+bones/8/position = Vector3(-0.21, 0.0252995, -0.357966)
+bones/8/rotation = Quaternion(-9.92617e-24, -8.74228e-08, 1.08084e-23, 1)
 bones/10/rotation = Quaternion(-0.707107, -6.01813e-15, 6.01813e-15, 0.707107)
 bones/11/scale = Vector3(0.270035, 0.270035, 0.161094)
 
 [node name="BoltTopLeft" parent="Armature/Skeleton3D" index="0"]
-transform = Transform3D(-0.0319501, -1.3719e-15, -2.76768e-08, 1.04768e-15, 0.0319501, -2.79317e-09, 2.76768e-08, -2.79317e-09, -0.0319501, 0.21, 0.279228, -0.357966)
+transform = Transform3D(-0.0319501, -1.13457e-15, -2.38681e-08, 9.52044e-16, 0.0319501, -2.79317e-09, 2.38681e-08, -2.79317e-09, -0.0319501, 0.21, -0.0137439, -0.173551)
 
 [node name="BoltBottomLeft" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.0319501, -7.09436e-18, 7.09435e-18, 7.09435e-18, 0.0319501, 3.80875e-09, -7.09435e-18, -3.80875e-09, 0.0319501, 0.21, 0.279228, 0.390809)
+transform = Transform3D(0.0319501, 3.52086e-16, -5.58634e-09, 3.13857e-16, 0.0319501, 3.80875e-09, 5.58634e-09, -3.80875e-09, 0.0319501, 0.21, -0.0137439, 0.575224)
 
 [node name="BoltBottomRight" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.0319501, -7.09436e-18, 7.09435e-18, 7.09435e-18, 0.0319501, 3.80875e-09, -7.09435e-18, -3.80875e-09, 0.0319501, -0.21, 0.279228, 0.390809)
+transform = Transform3D(0.0319501, 3.52086e-16, -5.58634e-09, 3.13857e-16, 0.0319501, 3.80875e-09, 5.58634e-09, -3.80875e-09, 0.0319501, -0.21, -0.0137439, 0.575224)
 
 [node name="BoltTopRight" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.0319501, -7.09436e-18, 7.09435e-18, 7.09435e-18, 0.0319501, 3.80875e-09, -7.09435e-18, -3.80875e-09, 0.0319501, -0.21, 0.279228, -0.357966)
+transform = Transform3D(0.0319501, 3.52086e-16, -5.58634e-09, 3.13857e-16, 0.0319501, 3.80875e-09, 5.58634e-09, -3.80875e-09, 0.0319501, -0.21, -0.0137439, -0.173551)
 
 [node name="Cover" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.222643, -4.94367e-17, -3.83923e-15, 3.83923e-15, -1.2226e-08, 0.222643, -4.94369e-17, -0.222643, -1.2226e-08, -2.98023e-07, 0.111744, 0.177476)
+transform = Transform3D(0.222643, -4.94367e-17, -3.83923e-15, 3.83923e-15, -1.2226e-08, 0.222643, -4.94369e-17, -0.222643, -1.2226e-08, 3.49972e-16, -0.214244, 0.361891)
 
 [node name="Powerbox" parent="Armature/Skeleton3D" index="5"]
 transform = Transform3D(0.270035, -5.99599e-17, -3.57699e-17, 5.99598e-17, -6.13565e-08, 0.161094, -5.99599e-17, -0.270035, -3.66032e-08, -2.48123e-17, 0.111745, 0.177477)
+
+[node name="Collider" type="StaticBody3D" parent="." index="2" groups=["needs_wrench"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00400543, 0.158432, 0.0250244)
+script = ExtResource("2_dummv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider" index="0"]
+shape = SubResource("BoxShape3D_ncis4")

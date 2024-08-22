@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://7107aa6nvsam" path="res://Scenes/ground.tscn" id="1_4mijs"]
 [ext_resource type="PackedScene" uid="uid://bmxn3j28b8kak" path="res://Scenes/enemy.tscn" id="3_iu837"]
 [ext_resource type="PackedScene" uid="uid://cud3t2vyil57k" path="res://Scenes/player_new.tscn" id="4_gxxp7"]
-[ext_resource type="PackedScene" uid="uid://b1arvq5yfmvci" path="res://Scenes/models/PowerboxCovered.tscn" id="4_wspjd"]
+[ext_resource type="PackedScene" uid="uid://b8noabs50pwgx" path="res://Scenes/models/powerbox.tscn" id="4_kkv08"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5xw7o"]
 vertices = PackedVector3Array(-49, 1.5, -22.5, -24, 1.5, -22.5, -24, 1.5, -23, -22.25, 1.5, -24.25, -22.25, 1.5, -49, -49, 1.5, -49, -21, 1.5, -23.75, -18.75, 1.5, -21.5, -15.75, 1.5, -19.5, 15.5, 1.5, -23.5, 16.25, 1.5, -23.5, 16.25, 1.5, -49, 14.75, 1.5, -22.75, -10.25, 1.5, -14.5, 14.75, 1.5, -14.5, 17.25, 1.5, -23.5, 18, 1.5, -22.75, 49, 1.5, -20.75, 49, 1.5, -49, 18, 1.5, -20.75, -12.75, 1.5, -12.5, -19, 1.5, -18, -22, 1.5, -20, -1.5, 1.5, 3, -11.75, 1.5, -12.5, -1.5, 1.5, 15.5, -49, 1.5, 15.5, 18, 1.5, -9.75, 49, 1.5, -9.75, 1.75, 1.5, 3, 15.75, 1.5, -7, 14.75, 1.5, -7.75, 1, 1.5, 2, -0.5, 1.5, 2, -10.5, 1.5, -13.75, 34.75, 1.5, 12.75, 36, 1.5, 14.5, 49, 1.5, 14.5, 18, 1.5, -8, 32.25, 1.5, 14.5, 33.75, 1.5, 12.75, 17.25, 1.5, -7, 1.75, 1.5, 17.25, 29, 1.5, 18.75, 35.75, 1.5, 15.5, 28, 1.5, 25.75, 26.5, 1.5, 26.75, 26.5, 1.5, 49, 49, 1.5, 49, 0, 1.5, 49, 0, 1.5, 18.25, -0.75, 1.5, 18.25, -1.5, 1.5, 17.5, -49, 1.5, 49, 24.5, 1.5, 24.75, 0.75, 1.5, 18.25, 24.5, 1.5, 25.5)
@@ -81,5 +81,5 @@ gizmo_extents = 2.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2728, 0.5, 31.5897)
 gizmo_extents = 2.5
 
-[node name="Node3D" parent="." instance=ExtResource("4_wspjd")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.587291, 2.23306, 6.65946)
+[node name="Powerbox" parent="." instance=ExtResource("4_kkv08")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.59509, 2.78168, 8.51649)
