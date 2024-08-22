@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceo72x0oox1uo"]
+
+[ext_resource type="PackedScene" uid="uid://dnyigfwlkken8" path="res://Assets/Scewdive.glb" id="1_blkoo"]
+
+[node name="Scewdive" instance=ExtResource("1_blkoo")]
+
+[node name="Cylinder" parent="." index="0"]
+layers = 2

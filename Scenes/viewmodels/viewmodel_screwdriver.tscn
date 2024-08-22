@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkt3ip3xmji6t"]
+
+[ext_resource type="Script" path="res://Scripts/Viewmodels/viewmodel_screwdriver.gd" id="1_qpgpr"]
+[ext_resource type="PackedScene" uid="uid://ceo72x0oox1uo" path="res://Scenes/models/scewdive.tscn" id="2_n4kgk"]
+
+[node name="ViewmodelHands" type="Camera3D" node_paths=PackedStringArray("interactRay")]
+cull_mask = 2
+script = ExtResource("1_qpgpr")
+interactRay = NodePath("RayCast3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -3)
+
+[node name="Scewdive" parent="." instance=ExtResource("2_n4kgk")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.6, -0.6, -1)

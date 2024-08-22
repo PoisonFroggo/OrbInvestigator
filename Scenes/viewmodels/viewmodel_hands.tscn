@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6xyew6e3ngsr"]
+
+[ext_resource type="Script" path="res://Scripts/Viewmodels/viewmodel_hands.gd" id="1_lmr2i"]
+
+[node name="ViewmodelHands" type="Camera3D" node_paths=PackedStringArray("interactRay")]
+cull_mask = 2
+script = ExtResource("1_lmr2i")
+interactRay = NodePath("RayCast3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -3)

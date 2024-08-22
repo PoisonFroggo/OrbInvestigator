@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cud3t2vyil57k"]
+[gd_scene load_steps=6 format=3 uid="uid://cud3t2vyil57k"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player_new.gd" id="1_a6bp1"]
-[ext_resource type="PackedScene" uid="uid://d10lqeuqhjlth" path="res://Scenes/viewmodel.tscn" id="2_r2a5r"]
+[ext_resource type="PackedScene" uid="uid://b6xyew6e3ngsr" path="res://Scenes/viewmodels/viewmodel_hands.tscn" id="2_q7n6u"]
+[ext_resource type="PackedScene" uid="uid://dkt3ip3xmji6t" path="res://Scenes/viewmodels/viewmodel_screwdriver.tscn" id="3_gt2h7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_68puk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mnoic"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("viewmodel") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("viewport") groups=["player"]]
 script = ExtResource("1_a6bp1")
-viewmodel = NodePath("SubViewportContainer/SubViewport/Viewmodel")
+toolset = Array[PackedScene]([ExtResource("2_q7n6u"), ExtResource("3_gt2h7")])
+viewport = NodePath("SubViewportContainer/SubViewport")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -26,14 +28,9 @@ canvas_cull_mask = 4293918722
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Viewmodel" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_r2a5r")]
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 cull_mask = 1
-
-[node name="InteractRay" type="RayCast3D" parent="Camera3D"]
-target_position = Vector3(0, 0, -2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_68puk")

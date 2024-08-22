@@ -22,10 +22,15 @@ var defaultSpeed: float = moveSpeed
 
 var tempDirection: Vector3
 
-@export var viewmodel: Camera3D
+@export_group("Viewmodels")
+## Array of all viewmodel scenes
+@export var toolset: Array[PackedScene]
+## SubViewport to add viewmodels too
+@export var viewport: SubViewport
+var current_viewmodel = null
 
 @onready var debugHud: CanvasLayer = $debugHud
-@onready var interact_ray: RayCast3D = $Camera3D/InteractRay
+var slots_codes: Array[int] = [KEY_1, KEY_2, KEY_3, KEY_4]
 
 func process_debug_hud() -> void:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))
@@ -37,10 +42,16 @@ func process_debug_hud() -> void:
 	$debugHud/VBoxContainer/moveSpeed.text = "moveSpeed: {moveSpeed}".format({"moveSpeed": snappedf(moveSpeed, 0.01)})
 	$debugHud/VBoxContainer/currentFPS.text = "FPS: {fps}".format({"fps": snapped(Engine.get_frames_per_second(), 0.01)})
 
+func _ready() -> void:
+	if toolset.size() != 0:
+		for viewmodel in toolset:
+			current_viewmodel = toolset[0].instantiate()
+			viewport.add_child(current_viewmodel)
+
 func _process(_delta: float) -> void:
 	# Move viewmodel cam to same in-world position as player cam
-	if viewmodel != null:
-		viewmodel.global_transform = $Camera3D.global_transform
+	if current_viewmodel != null:
+		current_viewmodel.global_transform = $Camera3D.global_transform
 	
 	if OS.is_debug_build():
 		process_debug_hud()
@@ -91,9 +102,15 @@ func _input(event: InputEvent) -> void:
 		self.rotate_y(deg_to_rad(-event.relative.x) * rotationSpeed)
 		# Clamp camera in vertical projection by verticalLookCap
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, deg_to_rad(-verticalLookCap), deg_to_rad(verticalLookCap))
-	# Interaction placeholder
-	if Input.is_action_just_pressed("interact"):
-		if interact_ray.is_colliding():
-			var interacted_groups: Array[StringName] = interact_ray.get_collider().get_groups()
-			if StringName("wall") in interacted_groups:
-				print("hit wall")
+	
+	# Handle slot selection
+	if event is InputEventKey and event.is_pressed() and event.keycode in slots_codes:
+		var slot = slots_codes.find(event.keycode)
+		# Check if viewmodels array has enough slots
+		if toolset.size() - 1 >= slot:
+			for child in viewport.get_children():
+				child.queue_free()
+			current_viewmodel = toolset[slot].instantiate()
+			viewport.add_child(current_viewmodel)
+		else:
+			print_debug("Tried to select unexisting slot index {slotNum}".format({"slotNum": slot}))
