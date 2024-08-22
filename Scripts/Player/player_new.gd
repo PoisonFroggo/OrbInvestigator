@@ -29,21 +29,24 @@ var viewmodels: Array
 var current_viewmodel = null
 var slots_codes: Array[int] = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9]
 
-@onready var debugHud: CanvasLayer = $debugHud
+var debugHud: DebugHUD
 
-func process_debug_hud() -> void:
+func generate_debug_info() -> Dictionary:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))
 	var roundRot: Vector3 = Vector3(snappedf($Camera3D.global_rotation_degrees.x, 0.01), snappedf($Camera3D.global_rotation_degrees.y, 0.01), snappedf($Camera3D.global_rotation_degrees.z, 0.01))
 	var roundVel: Vector3 = Vector3(snappedf(self.velocity.x, 0.01), snappedf(self.velocity.y, 0.01), snappedf(self.velocity.z, 0.01))
-	$debugHud/VBoxContainer/debugLabel.text = "Position: {playerPos}
-	Rotation: {playerRot}
-	Velocity: {playerVel}
-	moveSpeed: {moveSpeed}
-	FPS: {fps}
-	".format({"playerPos": roundPos, "playerRot": roundRot, "playerVel": roundVel,
-	"moveSpeed": snappedf(moveSpeed, 0.01), "fps": snappedf(Engine.get_frames_per_second(), 0.01)})
+	return {"debugText": "Position: {playerPos}\nRotation: {playerRot}\nVelocity: {playerVel}\nmoveSpeed: {moveSpeed}\nFPS: {fps}",
+	"formatter": {"playerPos": roundPos, "playerRot": roundRot, "playerVel": roundVel,
+	"moveSpeed": snappedf(moveSpeed, 0.01), "fps": snappedf(Engine.get_frames_per_second(), 0.01)}}
 
 func _ready() -> void:
+	# Capturing mouse on player ready
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	if OS.is_debug_build():
+		debugHud = load("res://Scenes/debugHUD.tscn").instantiate()
+		self.add_child(debugHud)
+	
 	# Adding all viewmodels from folder to array
 	if toolset.size() != 0:
 		for viewmodel in toolset:
@@ -57,9 +60,6 @@ func _process(_delta: float) -> void:
 	# Move viewmodel cam to same in-world position as player cam
 	if current_viewmodel != null:
 		current_viewmodel.global_transform = $Camera3D.global_transform
-	
-	if OS.is_debug_build():
-		process_debug_hud()
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.

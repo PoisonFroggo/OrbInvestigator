@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Debug="*res://Scripts/debug.gd"
 Globals="*res://Scripts/globals.gd"
 
 [debug]
@@ -42,6 +41,7 @@ player=""
 needs_wrench=""
 needs_screwdriver=""
 can_charge=""
+debug_info=""
 
 [input]
 

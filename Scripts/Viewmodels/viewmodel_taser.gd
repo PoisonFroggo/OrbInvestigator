@@ -35,15 +35,16 @@ func _input(_event: InputEvent) -> void:
 			print("interacted with unchargeable")
 
 	if Input.is_action_just_pressed("primary_fire"):
-		if charge >= charge_per_shot and not charging:
+		if charge >= charge_per_shot and not charging and $shootCooldown.is_stopped():
 			charge -= charge_per_shot
+			$shootCooldown.start()
 			if shooting_ray.is_colliding():
 				var collider = shooting_ray.get_collider()
 				if collider.has_method("tasered"):
 					collider.call("tasered")
 				else:
 					print("hit untaserable")
-		else:
+		elif charge < charge_per_shot:
 			print("no charge")
 
 func chargeTick() -> void:

@@ -47,3 +47,6 @@ theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 36
 text = "AAAA
 "
+
+[node name="shootCooldown" type="Timer" parent="."]
+one_shot = true
