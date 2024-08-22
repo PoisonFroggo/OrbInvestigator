@@ -8,7 +8,7 @@
 script = ExtResource("1_xsyys")
 GroundHeightRay = NodePath("PlayerRigidbody/PlayerCollider/RayCastGrounded")
 CameraNode = NodePath("PlayerRigidbody/PlayerCam")
-Speed = 40.0
+Speed = 90.0
 PlayerRoot = NodePath("PlayerRigidbody")
 
 [node name="PlayerRigidbody" type="RigidBody3D" parent="."]

@@ -23,6 +23,7 @@ public partial class PlayerController : Node3D
 	[Export] public RigidBody3D PlayerRoot { get; set; }
 
 
+
 	private Vector3 collide_location;
 	private Vector3 otherVel = new Vector3(0,0,0);
 	private Vector3 camTargetRotation;
