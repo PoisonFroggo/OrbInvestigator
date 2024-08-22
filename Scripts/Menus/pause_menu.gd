@@ -18,5 +18,5 @@ func go_to_main_menu() -> void:
 	var root = level.get_parent()
 	var menu = load("res://Scenes/menus/main_menu.tscn")
 	root.get_child(0).add_child(menu.instantiate())
-	get_tree().set_pause(true)
+	get_tree().set_pause(false)
 	level.queue_free()

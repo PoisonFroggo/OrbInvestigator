@@ -2,7 +2,7 @@ extends Control
 
 @onready var main_menu := preload("res://Scenes/menus/main.tscn")
 
-@export_file("*.tscn") var FirstLevelPath: String
+@export_file("*.tscn") var FirstLevelPath: String = "res://Scenes/level_1.tscn"
 
 func _ready() -> void:
 	self.add_child(main_menu.instantiate())
@@ -15,7 +15,7 @@ func start_game() -> void:
 	self.hide()
 	var loading_scene = Globals.loadingScene.instantiate()
 	parent_node.add_child(loading_scene)
-	ResourceLoader.load_threaded_request(FirstLevelPath, "PackedScene", true)
+	ResourceLoader.load_threaded_request(FirstLevelPath, "PackedScene", true, ResourceLoader.CACHE_MODE_REPLACE)
 	var progress: Array[float] = []
 	var prev_progress: float = -1
 	while ResourceLoader.load_threaded_get_status(FirstLevelPath, progress) != ResourceLoader.THREAD_LOAD_LOADED:
