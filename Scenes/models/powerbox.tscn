@@ -3,3 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://cq05i4f2j5ry4" path="res://Assets/Powerbox.glb" id="1_0x3a4"]
 
 [node name="Powerbox" instance=ExtResource("1_0x3a4")]
+
+[node name="Cube" parent="." index="0"]
+layers = 2
+
+[node name="Cylinder" parent="." index="2"]
+transform = Transform3D(-0.0319501, 2.79317e-09, 1.22093e-16, 0, -1.39658e-09, 0.0319501, 2.79317e-09, 0.0319501, 1.39658e-09, 0.212185, 0.540908, 0.169994)
+
+[node name="Cylinder_001" parent="." index="3"]
+transform = Transform3D(0.0319501, 0, 0, 0, -1.39658e-09, -0.0319501, 0, 0.0319501, -1.39658e-09, -0.212185, 0.540908, 0.169994)
+
+[node name="Cylinder_002" parent="." index="4"]
+transform = Transform3D(0.0319501, 0, 0, 0, -1.39658e-09, -0.0319501, 0, 0.0319501, -1.39658e-09, 0.212185, -0.206698, 0.169994)
+
+[node name="Cylinder_003" parent="." index="5"]
+transform = Transform3D(0.0319501, 0, 0, 0, -1.39658e-09, -0.0319501, 0, 0.0319501, -1.39658e-09, -0.212185, -0.206698, 0.169994)

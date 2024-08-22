@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://eiwyrxahsj3w"]
+
+[ext_resource type="PackedScene" uid="uid://c1fd1xlg0jswc" path="res://Assets/PowerboxCover.glb" id="1_83y7c"]
+
+[node name="PowerboxCover" instance=ExtResource("1_83y7c")]
+
+[node name="Cube_001" parent="." index="0"]
+layers = 2

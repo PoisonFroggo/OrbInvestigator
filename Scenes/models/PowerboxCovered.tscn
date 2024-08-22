@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1arvq5yfmvci"]
+
+[ext_resource type="PackedScene" uid="uid://c1fd1xlg0jswc" path="res://Assets/PowerboxCover.glb" id="1_4ft40"]
+[ext_resource type="PackedScene" uid="uid://cq05i4f2j5ry4" path="res://Assets/Powerbox.glb" id="2_oabjg"]
+[ext_resource type="PackedScene" uid="uid://bqu3e031lpujs" path="res://Assets/Bolt.glb" id="3_nodcc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PowerboxCover" parent="." instance=ExtResource("1_4ft40")]
+
+[node name="Powerbox" parent="." instance=ExtResource("2_oabjg")]
+
+[node name="Bolt" parent="." instance=ExtResource("3_nodcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225429, 0.557853, 0.168126)
+
+[node name="Bolt2" parent="." instance=ExtResource("3_nodcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223233, 0.557853, 0.168126)
+
+[node name="Bolt3" parent="." instance=ExtResource("3_nodcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218353, -0.223576, 0.168126)
+
+[node name="Bolt4" parent="." instance=ExtResource("3_nodcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219515, -0.223576, 0.168126)
