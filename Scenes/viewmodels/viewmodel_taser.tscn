@@ -6,6 +6,7 @@
 [node name="ViewmodelTaser" type="Camera3D"]
 cull_mask = 2
 script = ExtResource("1_6gkl2")
+toolType = 3
 
 [node name="InteractRay" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -3)

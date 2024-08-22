@@ -4,6 +4,8 @@ extends Camera3D
 @onready var charge_label: Label = $HUD/MarginContainer/Charge
 @onready var shooting_ray: RayCast3D = $shootingRay
 
+@export var toolType: Globals.ToolTypes = Globals.ToolTypes.Hand
+
 @export_group("Shooting parameters")
 ## How much of charge percentage take per shot
 @export_range(0, 10, 1, "or_greater", "suffix:%") var charge_per_shot: int = 10

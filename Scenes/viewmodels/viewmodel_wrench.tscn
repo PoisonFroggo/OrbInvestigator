@@ -6,6 +6,7 @@
 [node name="ViewmodelWrench" type="Camera3D"]
 cull_mask = 2
 script = ExtResource("1_0skex")
+toolType = 1
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -3)
