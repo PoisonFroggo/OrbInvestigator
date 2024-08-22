@@ -7,6 +7,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mnoic"]
 
 [node name="Player" type="CharacterBody3D" groups=["debug_info", "player"]]
+process_mode = 1
 script = ExtResource("1_a6bp1")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]

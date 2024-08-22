@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxt6f7awuihga"]
+
+[ext_resource type="PackedScene" uid="uid://c02obw77r6flo" path="res://Scenes/menus/main_menu.tscn" id="1_ruked"]
+
+[node name="Main" type="Node"]
+
+[node name="Menus" type="Node" parent="."]
+process_mode = 3
+
+[node name="MainMenu" parent="Menus" instance=ExtResource("1_ruked")]
+FirstLevelPath = "res://Scenes/level_1.tscn"

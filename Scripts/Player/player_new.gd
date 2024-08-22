@@ -25,6 +25,8 @@ var tempDirection: Vector3
 var toolset: PackedStringArray = DirAccess.get_files_at("res://Scenes/viewmodels/")
 var viewmodels: Array
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
+@onready var hud: CanvasLayer = $HUD
+
 
 var current_viewmodel = null
 var slots_codes: Array[int] = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9]
