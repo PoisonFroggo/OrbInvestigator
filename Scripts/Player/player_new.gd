@@ -27,21 +27,24 @@ var viewmodels: Array
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
 
 var current_viewmodel = null
+var slots_codes: Array[int] = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9]
 
 @onready var debugHud: CanvasLayer = $debugHud
-var slots_codes: Array[int] = [KEY_1, KEY_2, KEY_3, KEY_4]
 
 func process_debug_hud() -> void:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))
 	var roundRot: Vector3 = Vector3(snappedf($Camera3D.global_rotation_degrees.x, 0.01), snappedf($Camera3D.global_rotation_degrees.y, 0.01), snappedf($Camera3D.global_rotation_degrees.z, 0.01))
 	var roundVel: Vector3 = Vector3(snappedf(self.velocity.x, 0.01), snappedf(self.velocity.y, 0.01), snappedf(self.velocity.z, 0.01))
-	$debugHud/VBoxContainer/playerPosition.text = "Position: {playerPos}".format({"playerPos": roundPos})
-	$debugHud/VBoxContainer/playerRotation.text = "Rotation: {playerRot}".format({"playerRot": roundRot})
-	$debugHud/VBoxContainer/playerVelocity.text = "Velocity: {playerVel}".format({"playerVel": roundVel})
-	$debugHud/VBoxContainer/moveSpeed.text = "moveSpeed: {moveSpeed}".format({"moveSpeed": snappedf(moveSpeed, 0.01)})
-	$debugHud/VBoxContainer/currentFPS.text = "FPS: {fps}".format({"fps": snapped(Engine.get_frames_per_second(), 0.01)})
+	$debugHud/VBoxContainer/debugLabel.text = "Position: {playerPos}
+	Rotation: {playerRot}
+	Velocity: {playerVel}
+	moveSpeed: {moveSpeed}
+	FPS: {fps}
+	".format({"playerPos": roundPos, "playerRot": roundRot, "playerVel": roundVel,
+	"moveSpeed": snappedf(moveSpeed, 0.01), "fps": snappedf(Engine.get_frames_per_second(), 0.01)})
 
 func _ready() -> void:
+	# Adding all viewmodels from folder to array
 	if toolset.size() != 0:
 		for viewmodel in toolset:
 			var current_viewmodel_index = toolset.find(viewmodel)
