@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://drboxwlyl1te2"]
+
+[ext_resource type="PackedScene" uid="uid://d1yagugx4u7ol" path="res://Assets/RemoteTaser.glb" id="1_lxl8n"]
+
+[node name="RemoteTaser" instance=ExtResource("1_lxl8n")]

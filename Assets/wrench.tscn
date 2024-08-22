@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://h32ncj6jlitb"]
+
+[ext_resource type="PackedScene" uid="uid://dc0qlqjvun3nq" path="res://Assets/Wrench.glb" id="1_ea1sn"]
+
+[node name="Wrench" instance=ExtResource("1_ea1sn")]
+
+[node name="Wrench_complex_001" parent="." index="0"]
+layers = 2
