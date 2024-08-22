@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl5icejftrvty"]
+
+[ext_resource type="Script" path="res://Scripts/Viewmodels/viewmodel_taser.gd" id="1_6gkl2"]
+[ext_resource type="PackedScene" uid="uid://cb8oq0hjvygqy" path="res://Scenes/models/remote_taser.tscn" id="2_6xn5e"]
+
+[node name="ViewmodelTaser" type="Camera3D"]
+cull_mask = 2
+script = ExtResource("1_6gkl2")
+
+[node name="InteractRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -3)
+
+[node name="shootingRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)
+debug_shape_thickness = 3
+
+[node name="RemoteTaser" parent="." instance=ExtResource("2_6xn5e")]
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.3, -0.15, -0.6)
+
+[node name="chargeTick" type="Timer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+light_mask = 0
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="Charge" type="Label" parent="HUD/MarginContainer"]
+visibility_layer = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 36
+text = "AAAA
+"

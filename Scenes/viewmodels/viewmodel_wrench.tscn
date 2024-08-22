@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyvabvtchfukr"]
 
-[ext_resource type="Script" path="res://Scripts/viewmodel_wrench.gd" id="1_uy6mf"]
+[ext_resource type="Script" path="res://Scripts/Viewmodels/viewmodel_wrench.gd" id="1_0skex"]
 [ext_resource type="PackedScene" uid="uid://h32ncj6jlitb" path="res://Scenes/models/wrench.tscn" id="2_lcnbw"]
 
 [node name="ViewmodelWrench" type="Camera3D"]
 cull_mask = 2
-script = ExtResource("1_uy6mf")
+script = ExtResource("1_0skex")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -3)

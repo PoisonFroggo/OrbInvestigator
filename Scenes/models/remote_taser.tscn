@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb8oq0hjvygqy"]
+
+[ext_resource type="PackedScene" uid="uid://d1yagugx4u7ol" path="res://Assets/RemoteTaser.glb" id="1_votjg"]
+
+[node name="RemoteTaser" instance=ExtResource("1_votjg")]
+
+[node name="NurbsPath_002" parent="." index="0"]
+layers = 2
