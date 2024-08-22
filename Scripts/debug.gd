@@ -6,7 +6,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func toggle_mouse_mode() -> void:
-	Input.mouse_mode = 0 if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else 2
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape"):

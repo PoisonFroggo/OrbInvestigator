@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cud3t2vyil57k"]
+[gd_scene load_steps=4 format=3 uid="uid://cud3t2vyil57k"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player_new.gd" id="1_a6bp1"]
-[ext_resource type="PackedScene" uid="uid://b6xyew6e3ngsr" path="res://Scenes/viewmodels/viewmodel_hands.tscn" id="2_q7n6u"]
-[ext_resource type="PackedScene" uid="uid://dkt3ip3xmji6t" path="res://Scenes/viewmodels/viewmodel_screwdriver.tscn" id="3_gt2h7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_68puk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mnoic"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("viewport") groups=["player"]]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_a6bp1")
-toolset = Array[PackedScene]([ExtResource("2_q7n6u"), ExtResource("3_gt2h7")])
-viewport = NodePath("SubViewportContainer/SubViewport")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

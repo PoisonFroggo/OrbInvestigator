@@ -22,11 +22,10 @@ var defaultSpeed: float = moveSpeed
 
 var tempDirection: Vector3
 
-@export_group("Viewmodels")
-## Array of all viewmodel scenes
-@export var toolset: Array[PackedScene]
-## SubViewport to add viewmodels too
-@export var viewport: SubViewport
+var toolset: PackedStringArray = DirAccess.get_files_at("res://Scenes/viewmodels/")
+var viewmodels: Array
+@onready var viewport: SubViewport = $SubViewportContainer/SubViewport
+
 var current_viewmodel = null
 
 @onready var debugHud: CanvasLayer = $debugHud
@@ -45,8 +44,11 @@ func process_debug_hud() -> void:
 func _ready() -> void:
 	if toolset.size() != 0:
 		for viewmodel in toolset:
-			current_viewmodel = toolset[0].instantiate()
-			viewport.add_child(current_viewmodel)
+			var current_viewmodel_index = toolset.find(viewmodel)
+			toolset[current_viewmodel_index] = "res://Scenes/viewmodels/" + viewmodel
+			viewmodels.append(toolset[current_viewmodel_index])
+		current_viewmodel = load(viewmodels[0]).instantiate()
+		viewport.add_child(current_viewmodel)
 
 func _process(_delta: float) -> void:
 	# Move viewmodel cam to same in-world position as player cam
@@ -110,7 +112,7 @@ func _input(event: InputEvent) -> void:
 		if toolset.size() - 1 >= slot:
 			for child in viewport.get_children():
 				child.queue_free()
-			current_viewmodel = toolset[slot].instantiate()
+			current_viewmodel = load(viewmodels[slot]).instantiate()
 			viewport.add_child(current_viewmodel)
 		else:
 			print_debug("Tried to select unexisting slot index {slotNum}".format({"slotNum": slot}))

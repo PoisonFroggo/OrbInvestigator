@@ -7,7 +7,7 @@ func _input(_event: InputEvent) -> void:
 		var collider = interactRay.get_collider() as Node
 		var collider_groups = collider.get_groups()
 		
-		if "needs_screwdriver" in collider_groups:
-			print("interacted with screwdriveable")
+		if "needs_wrench" in collider_groups:
+			print("interacted with wrenchable")
 		else:
-			print("interacted with non screwdriveable")
+			print("interacted with non wrenchable")
