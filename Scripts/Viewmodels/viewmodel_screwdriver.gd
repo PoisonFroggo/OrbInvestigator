@@ -8,6 +8,10 @@ func _input(_event: InputEvent) -> void:
 		var collider_groups = collider.get_groups()
 		
 		if "needs_screwdriver" in collider_groups:
-			print("interacted with screwdriveable")
+			if collider.has_method("interact"):
+				collider.call("interact")
+				print("interacted with screwdriveable")
+			else:
+				push_warning("Collider {collider} has no interact method, skipping interaction".format({"collider": collider}))
 		else:
 			print("interacted with non screwdriveable")
