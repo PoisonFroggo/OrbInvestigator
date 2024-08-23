@@ -1,10 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://cxt6f7awuihga"]
 
-[ext_resource type="PackedScene" uid="uid://c02obw77r6flo" path="res://Scenes/menus/main_menu.tscn" id="1_ruked"]
+[ext_resource type="Script" path="res://Scripts/Menus/main.gd" id="1_d41fp"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_d41fp")
 
 [node name="Menus" type="Node" parent="."]
 process_mode = 3
 
-[node name="MainMenu" parent="Menus" instance=ExtResource("1_ruked")]
+[node name="Game" type="Node" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true

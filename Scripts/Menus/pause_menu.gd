@@ -1,10 +1,11 @@
 extends MarginContainer
 
+@onready var main_node := get_parent().get_parent()
+
 func _ready() -> void:
 	$PanelContainer/MarginContainer/VBoxContainer/GameButton.pressed.connect(func():
-		get_tree().set_pause(false)
-		self.queue_free()
-		Globals.toggle_mouse_mode())
+		main_node.switch_state(Globals.GameState.Game)
+		self.queue_free())
 	$PanelContainer/MarginContainer/VBoxContainer/Options.pressed.connect(open_options)
 	$PanelContainer/MarginContainer/VBoxContainer/MainMenuButton.pressed.connect(go_to_main_menu)
 
@@ -14,9 +15,4 @@ func open_options() -> void:
 	self.get_parent().set_process(false)
 
 func go_to_main_menu() -> void:
-	var level = get_tree().get_first_node_in_group("player").get_parent()
-	var root = level.get_parent()
-	var menu = load("res://Scenes/menus/main_menu.tscn")
-	root.get_child(0).add_child(menu.instantiate())
-	get_tree().set_pause(false)
-	level.queue_free()
+	main_node.switch_state(Globals.GameState.Menu)

@@ -19,7 +19,7 @@ class_name Player
 
 @export_group("Menu Variables")
 
-@export var debugHud: Node #I am not entirely sure why, but this fixed all menu related problems
+var debugHud: Node
 
 var runSpeed: float = moveSpeed * runPower
 var defaultSpeed: float = moveSpeed
@@ -29,7 +29,6 @@ var tempDirection: Vector3
 var toolset: PackedStringArray = DirAccess.get_files_at("res://Scenes/viewmodels/")
 var viewmodels: Array
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
-@onready var hud: CanvasLayer = $HUD
 
 
 var current_viewmodel = null
