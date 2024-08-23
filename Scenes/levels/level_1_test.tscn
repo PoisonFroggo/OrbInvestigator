@@ -71,6 +71,7 @@ material = SubResource("StandardMaterial3D_vy07t")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D/Lamp/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.290764, 0)
+layers = 3
 shadow_enabled = true
 omni_range = 10.0
 

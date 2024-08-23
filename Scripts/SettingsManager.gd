@@ -19,21 +19,21 @@ func set_screenmode(value: bool) -> void:
 	write_settings(options)
 
 func set_resolution(value: int) -> void:
-	var new_resolution: Vector2
+	var new_resolution: Vector2i
 	match value:
 		0:
-			new_resolution = Vector2(1024, 768)
-		1:
 			new_resolution = Vector2(1280, 960)
-		2:
+		1:
 			new_resolution = Vector2(1600, 900)
-		3:
+		2:
 			new_resolution = Vector2(1920, 1080)
-		4:
+		3:
 			new_resolution = Vector2(2560, 1440)
-	if get_window().mode == Window.MODE_WINDOWED:
-		get_window().size = new_resolution
 	get_window().content_scale_size = new_resolution
+	if new_resolution > get_window().size:
+		get_window().content_scale_factor = new_resolution.length() / get_window().size.length()
+	elif new_resolution <= get_window().size:
+		get_window().content_scale_factor = get_window().size.length() / new_resolution.length()
 	options["resolution"] = value
 	write_settings(options)
 

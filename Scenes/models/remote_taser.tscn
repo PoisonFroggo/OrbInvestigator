@@ -6,3 +6,6 @@
 
 [node name="NurbsPath_002" parent="." index="0"]
 layers = 2
+
+[node name="NurbsPath_001" parent="." index="1"]
+layers = 2

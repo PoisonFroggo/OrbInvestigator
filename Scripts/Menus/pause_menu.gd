@@ -11,8 +11,7 @@ func _ready() -> void:
 
 func open_options() -> void:
 	var options_menu = Globals.optionsMenu.instantiate()
-	self.add_child(options_menu)
-	self.get_parent().set_process(false)
+	get_parent().add_child(options_menu)
 
 func go_to_main_menu() -> void:
 	main_node.switch_state(Globals.GameState.Menu)
