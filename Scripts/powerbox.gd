@@ -2,8 +2,7 @@ extends Node3D
 
 @onready var anim_player: AnimationPlayer = $"../AnimationPlayer"
 
-## Object to call "powerbox_used" on
-@export var attached_object: Node
+var attached_object: Node
 
 var opened: bool = false
 var usedTool: Globals.ToolTypes
@@ -19,7 +18,9 @@ func interact(toolType: Globals.ToolTypes):
 			opened = true
 	elif toolType != Globals.ToolTypes.Wrench and not opened:
 		print("Wrong tool")
-	elif opened and attached_object != null and attached_object.has_method("powerbox_used"):
+
+func tasered():
+	if opened and attached_object != null and attached_object.has_method("powerbox_used") and not attached_object.opened:
 		attached_object.call("powerbox_used")
 
 func _input(_event: InputEvent) -> void:

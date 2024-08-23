@@ -33,6 +33,7 @@ var viewmodels: Array
 
 var current_viewmodel = null
 var slots_codes: Array[int] = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9]
+var inventory: Array[Node] = []
 
 
 func generate_debug_info() -> Dictionary:
@@ -57,7 +58,9 @@ func _ready() -> void:
 			var current_viewmodel_index = toolset.find(viewmodel)
 			toolset[current_viewmodel_index] = "res://Scenes/viewmodels/" + viewmodel
 			viewmodels.append(toolset[current_viewmodel_index])
-		current_viewmodel = load(viewmodels[0]).instantiate()
+		for viewmodel in viewmodels:
+			inventory.append(load(viewmodel).instantiate())
+		current_viewmodel = inventory[0]
 		viewport.add_child(current_viewmodel)
 
 func _process(_delta: float) -> void:
@@ -118,8 +121,8 @@ func _input(event: InputEvent) -> void:
 		# Check if viewmodels array has enough slots
 		if toolset.size() - 1 >= slot:
 			for child in viewport.get_children():
-				child.queue_free()
-			current_viewmodel = load(viewmodels[slot]).instantiate()
+				viewport.remove_child(child)
+			current_viewmodel = inventory[slot]
 			viewport.add_child(current_viewmodel)
 		else:
 			print_debug("Tried to select unexisting slot index {slotNum}".format({"slotNum": slot}))

@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy6kjpcs03jbe"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_wwrj5"]
+
+[sub_resource type="Animation" id="Animation_x6aen"]
+resource_name = "door_open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wldwd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7465"]
+_data = {
+"RESET": SubResource("Animation_wldwd"),
+"door_open": SubResource("Animation_x6aen")
+}
+
+[node name="Door" type="CSGCombiner3D"]
+use_collision = true
+script = ExtResource("1_wwrj5")
+
+[node name="frame" type="CSGBox3D" parent="."]
+size = Vector3(1, 0.1, 0.1)
+
+[node name="frame2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+size = Vector3(1, 0.1, 0.1)
+
+[node name="frame3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, 0)
+size = Vector3(0.1, 2, 0.1)
+
+[node name="frame4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 1, 0)
+size = Vector3(0.1, 2, 0.1)
+
+[node name="door" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(1, 2, 0.05)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w7465")
+}
