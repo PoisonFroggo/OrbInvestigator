@@ -6,9 +6,10 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mnoic"]
 
-[node name="Player" type="CharacterBody3D" groups=["debug_info", "player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("debugHud") groups=["debug_info", "player"]]
 process_mode = 1
 script = ExtResource("1_a6bp1")
+debugHud = NodePath("SubViewportContainer/SubViewport")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

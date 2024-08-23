@@ -17,6 +17,10 @@ class_name Player
 ## Amount by how much lerp moveSpeed to runSpeed and back
 @export var runSmoothing: float = 0.05
 
+@export_group("Menu Variables")
+
+@export var debugHud: Node #I am not entirely sure why, but this fixed all menu related problems
+
 var runSpeed: float = moveSpeed * runPower
 var defaultSpeed: float = moveSpeed
 
@@ -31,7 +35,6 @@ var viewmodels: Array
 var current_viewmodel = null
 var slots_codes: Array[int] = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9]
 
-var debugHud: DebugHUD
 
 func generate_debug_info() -> Dictionary:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))

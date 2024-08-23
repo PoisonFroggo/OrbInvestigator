@@ -4,6 +4,7 @@ extends Node
 @onready var optionsMenu: PackedScene = preload("res://Scenes/menus/options.tscn")
 @onready var pauseMenu: PackedScene = preload("res://Scenes/menus/pause_menu.tscn")
 
+
 var options: Dictionary
 
 signal start_game
@@ -20,10 +21,13 @@ func _ready():
 	options = JSON.parse_string(settings_file.get_as_text())
 	set_options()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape"):
 		var player = get_tree().get_first_node_in_group("player")
 		if player != null:
+			print(player.hud)
+			for _i in player.get_groups():
+				print(_i)
 			if player.hud.get_children().size() <= 1:
 				player.hud.add_child(pauseMenu.instantiate())
 				get_tree().set_pause(true)
