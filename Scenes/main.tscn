@@ -8,4 +8,3 @@
 process_mode = 3
 
 [node name="MainMenu" parent="Menus" instance=ExtResource("1_ruked")]
-FirstLevelPath = "res://Scenes/level_1.tscn"

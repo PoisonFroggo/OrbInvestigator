@@ -2,7 +2,7 @@ extends Control
 
 @onready var main_menu := preload("res://Scenes/menus/main.tscn")
 
-@export_file("*.tscn") var FirstLevelPath: String = "res://Scenes/level_1.tscn"
+@export_file("*.tscn") var FirstLevelPath: String = "res://Scenes/levels/level_1_test.tscn"
 
 func _ready() -> void:
 	self.add_child(main_menu.instantiate())
