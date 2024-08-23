@@ -42,11 +42,31 @@ enum ToolTypes {
 
 func set_options() -> void:
 	set_screenmode(options["fullscreen"])
-	write_settings(options)
+	set_resolution(options["resolution"])
 
 func set_screenmode(value: bool) -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if value else DisplayServer.WINDOW_MODE_WINDOWED)
 	options["fullscreen"] = value
+	write_settings(options)
+
+func set_resolution(value: int) -> void:
+	var new_resolution: Vector2
+	match value:
+		0:
+			new_resolution = Vector2(1024, 768)
+		1:
+			new_resolution = Vector2(1280, 960)
+		2:
+			new_resolution = Vector2(1600, 900)
+		3:
+			new_resolution = Vector2(1920, 1080)
+		4:
+			new_resolution = Vector2(2560, 1440)
+	if get_window().mode == Window.MODE_WINDOWED:
+		get_window().size = new_resolution
+	get_window().content_scale_size = new_resolution
+	options["resolution"] = value
+	write_settings(options)
 
 func write_settings(settings: Dictionary) -> void:
 	var settings_file = FileAccess.open("user://settings.json", FileAccess.WRITE)
