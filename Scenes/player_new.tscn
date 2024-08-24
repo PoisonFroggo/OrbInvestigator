@@ -8,7 +8,7 @@
 shader = ExtResource("2_3v4lf")
 shader_parameter/progress = 0.998
 shader_parameter/time_scale = 5.0
-shader_parameter/radiation = 0.4
+shader_parameter/radiation = 0.2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_68puk"]
 

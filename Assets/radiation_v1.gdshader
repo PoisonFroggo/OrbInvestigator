@@ -15,6 +15,6 @@ void fragment() {
 	vec2 pixel_within_texture = floor(UV * texture_resolution - texture_resolution / 2.0);
 	COLOR.a = radiation;
 	if (progress > random_coord(pixel_within_texture)) {
-		COLOR = vec4(0.0, 0.0, 0.0, 0.0); 
+		COLOR = vec4(0.0, 0.0, 0.0, 0.0);
 	}
 }
