@@ -60,6 +60,7 @@ func _ready() -> void:
 			var current_viewmodel_index = toolset.find(viewmodel)
 			toolset[current_viewmodel_index] = "res://Scenes/viewmodels/" + viewmodel
 			viewmodels.append(toolset[current_viewmodel_index])
+		# Add tools to inventory
 		for viewmodel in viewmodels:
 			inventory.append(load(viewmodel).instantiate())
 		current_viewmodel = inventory[0]
@@ -68,7 +69,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	radiation = clampf(radiation, 0.0, 1.0)
 	var rad_progress: float = 1.0 - (radiation / 100.0)
-	$Camera3D/TextureRect.material.set_shader_parameter("radiation", radiation)
+	# Setting radiation shaders parameters based on radiation
+	# Alpha for shader (disabled for now because in my opinion const alpha looks better
+	#$Camera3D/TextureRect.material.set_shader_parameter("radiation", radiation)
+	# Amount of random pixels
 	$Camera3D/TextureRect.material.set_shader_parameter("progress", rad_progress)
 	# Move viewmodel cam to same in-world position as player cam
 	if current_viewmodel != null:

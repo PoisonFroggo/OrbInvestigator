@@ -10,6 +10,7 @@ toolType = 2
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -3)
+debug_shape_thickness = 1
 
 [node name="Scewdive" parent="." instance=ExtResource("2_n4kgk")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.6, -0.6, -1)

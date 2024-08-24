@@ -3,11 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/radiation_zone.gd" id="1_np0e6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pqwoh"]
-radius = 5.0
+radius = 2.0
 
 [node name="RadiationZone" type="Marker3D"]
 script = ExtResource("1_np0e6")
-tick_intervals = null
 
 [node name="Area3D" type="Area3D" parent="."]
 

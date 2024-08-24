@@ -10,6 +10,7 @@ toolType = 1
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -3)
+debug_shape_thickness = 1
 
 [node name="Wrench" parent="." instance=ExtResource("2_lcnbw")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.6, -0.3, -1)

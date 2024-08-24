@@ -8,3 +8,4 @@ script = ExtResource("1_lmr2i")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -3)
+debug_shape_thickness = 1
