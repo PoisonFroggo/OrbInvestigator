@@ -26,6 +26,8 @@ var defaultSpeed: float = moveSpeed
 
 var tempDirection: Vector3
 
+var radiation: float = 0.0
+
 var toolset: PackedStringArray = DirAccess.get_files_at("res://Scenes/viewmodels/")
 var viewmodels: Array
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
@@ -64,6 +66,9 @@ func _ready() -> void:
 		viewport.add_child(current_viewmodel)
 
 func _process(_delta: float) -> void:
+	var rad_progress: float = 1.0 - (radiation / 100.0)
+	$Camera3D/TextureRect.material.set_shader_parameter("radiation", radiation)
+	$Camera3D/TextureRect.material.set_shader_parameter("progress", rad_progress)
 	# Move viewmodel cam to same in-world position as player cam
 	if current_viewmodel != null:
 		current_viewmodel.global_transform = $Camera3D.global_transform

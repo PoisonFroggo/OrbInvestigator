@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm4t51rlitjs8"]
+[gd_scene load_steps=12 format=3 uid="uid://dm4t51rlitjs8"]
 
 [ext_resource type="Texture2D" uid="uid://dmgfrmnb56uxv" path="res://Assets/Textures/Prototype/Dark/texture_13.png" id="1_l1p3m"]
 [ext_resource type="Texture2D" uid="uid://b017ggfrmpyj3" path="res://Assets/Textures/Prototype/Red/texture_04.png" id="2_p7nu7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dv2ljir1ipn2j" path="res://Assets/Textures/Prototype/Orange/texture_03.png" id="3_nf0wp"]
 [ext_resource type="PackedScene" uid="uid://b8noabs50pwgx" path="res://Scenes/models/powerbox.tscn" id="5_uug7u"]
 [ext_resource type="PackedScene" uid="uid://dy6kjpcs03jbe" path="res://Scenes/models/door.tscn" id="6_tpqn7"]
+[ext_resource type="PackedScene" uid="uid://cbwr3s2shu7jj" path="res://Scenes/radiation_zone.tscn" id="7_xgjqn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg72i"]
 albedo_texture = ExtResource("1_l1p3m")
@@ -86,3 +87,7 @@ attached_object = NodePath("../Door")
 
 [node name="Door" parent="." instance=ExtResource("6_tpqn7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.39747, 0.491583, 19.9113)
+
+[node name="RadiationZone" parent="." instance=ExtResource("7_xgjqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.746827, 1.83309, 8.13355)
+size = 3.0
