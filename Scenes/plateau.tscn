@@ -1,5 +1,88 @@
-[gd_scene load_steps=2 format=3 uid="uid://1vm5m1s5ucfw"]
+[gd_scene load_steps=6 format=3 uid="uid://1vm5m1s5ucfw"]
 
 [ext_resource type="PackedScene" uid="uid://bo1jwixhhp7ga" path="res://Assets/Plateau.glb" id="1_m8yqf"]
+[ext_resource type="Texture2D" uid="uid://c3pprb46ic3dy" path="res://Assets/Plateau_Gresstxtr.jpg" id="2_csn3r"]
+[ext_resource type="Texture2D" uid="uid://cprohv3s6jg76" path="res://Assets/Plateau_Concrete.jpg" id="2_y5j8y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnu3c"]
+albedo_texture = ExtResource("2_y5j8y")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7wjj"]
+albedo_texture = ExtResource("2_csn3r")
 
 [node name="Plateau" instance=ExtResource("1_m8yqf")]
+
+[node name="MainEntrance" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_qnu3c")
+
+[node name="Bedframe_col" parent="." index="6"]
+mesh = null
+
+[node name="Shitter_col" parent="." index="8"]
+mesh = null
+
+[node name="Shitter1_col" parent="." index="11"]
+mesh = null
+
+[node name="Shitter2_col" parent="." index="13"]
+mesh = null
+
+[node name="Shitter3_col" parent="." index="15"]
+mesh = null
+
+[node name="Shitter4_col" parent="." index="17"]
+mesh = null
+
+[node name="Shitter5_col" parent="." index="19"]
+mesh = null
+
+[node name="Bafroom_brokenEntry2_col" parent="." index="20"]
+mesh = null
+
+[node name="Bafroom_brokenEntry_col" parent="." index="21"]
+mesh = null
+
+[node name="Bafroom" parent="." index="22"]
+mesh = null
+
+[node name="plateau_col" parent="." index="30"]
+mesh = null
+
+[node name="Cube8_col" parent="." index="31"]
+mesh = null
+
+[node name="Fence_col" parent="." index="32"]
+mesh = null
+
+[node name="MainEntrance_col" parent="." index="33"]
+mesh = null
+
+[node name="Cube5_col" parent="." index="34"]
+mesh = null
+
+[node name="Cube4_col" parent="." index="35"]
+mesh = null
+
+[node name="Bridge_col" parent="." index="36"]
+mesh = null
+
+[node name="Bafroomramp_col" parent="." index="37"]
+mesh = null
+
+[node name="plateau" parent="." index="39"]
+material_override = SubResource("StandardMaterial3D_d7wjj")
+
+[node name="Cube7_col" parent="." index="43"]
+mesh = null
+
+[node name="Bridge1_col" parent="." index="45"]
+mesh = null
+
+[node name="Bridge2_col" parent="." index="47"]
+mesh = null
+
+[node name="Bridge3_col" parent="." index="49"]
+mesh = null
+
+[node name="Cube6_col" parent="." index="50"]
+mesh = null
