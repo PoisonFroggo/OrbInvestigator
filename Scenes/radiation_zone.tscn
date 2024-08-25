@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbwr3s2shu7jj"]
+[gd_scene load_steps=3 format=3 uid="uid://cbwr3s2shu7jj"]
 
 [ext_resource type="Script" path="res://Scripts/radiation_zone.gd" id="1_np0e6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pqwoh"]
+radius = 2.0
 
 [node name="RadiationZone" type="Marker3D"]
 script = ExtResource("1_np0e6")
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_pqwoh")
+
 [node name="RayCast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, 0)
+target_position = Vector3(0, 0, -5)
 
 [node name="radTicker" type="Timer" parent="."]

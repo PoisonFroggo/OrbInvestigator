@@ -42,9 +42,9 @@ func generate_debug_info() -> Dictionary:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))
 	var roundRot: Vector3 = Vector3(snappedf($Camera3D.global_rotation_degrees.x, 0.01), snappedf($Camera3D.global_rotation_degrees.y, 0.01), snappedf($Camera3D.global_rotation_degrees.z, 0.01))
 	var roundVel: Vector3 = Vector3(snappedf(self.velocity.x, 0.01), snappedf(self.velocity.y, 0.01), snappedf(self.velocity.z, 0.01))
-	return {"debugText": "Position: {playerPos}\nRotation: {playerRot}\nVelocity: {playerVel}\nmoveSpeed: {moveSpeed}\nFPS: {fps}",
+	return {"debugText": "Position: {playerPos}\nRotation: {playerRot}\nVelocity: {playerVel}\nmoveSpeed: {moveSpeed}\nFPS: {fps}\nRad: {radiation}",
 	"formatter": {"playerPos": roundPos, "playerRot": roundRot, "playerVel": roundVel,
-	"moveSpeed": snappedf(moveSpeed, 0.01), "fps": snappedf(Engine.get_frames_per_second(), 0.01)}}
+	"moveSpeed": snappedf(moveSpeed, 0.01), "fps": snappedf(Engine.get_frames_per_second(), 0.01), "radiation": radiation}}
 
 func _ready() -> void:
 	# Capturing mouse on player ready
@@ -60,14 +60,19 @@ func _ready() -> void:
 			var current_viewmodel_index = toolset.find(viewmodel)
 			toolset[current_viewmodel_index] = "res://Scenes/viewmodels/" + viewmodel
 			viewmodels.append(toolset[current_viewmodel_index])
+		# Add tools to inventory
 		for viewmodel in viewmodels:
 			inventory.append(load(viewmodel).instantiate())
 		current_viewmodel = inventory[0]
 		viewport.add_child(current_viewmodel)
 
 func _process(_delta: float) -> void:
+	radiation = clampf(radiation, 0.0, 1.0)
 	var rad_progress: float = 1.0 - (radiation / 100.0)
-	$Camera3D/TextureRect.material.set_shader_parameter("radiation", radiation)
+	# Setting radiation shaders parameters based on radiation
+	# Alpha for shader (disabled for now because in my opinion const alpha looks better
+	#$Camera3D/TextureRect.material.set_shader_parameter("radiation", radiation)
+	# Amount of random pixels
 	$Camera3D/TextureRect.material.set_shader_parameter("progress", rad_progress)
 	# Move viewmodel cam to same in-world position as player cam
 	if current_viewmodel != null:

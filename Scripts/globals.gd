@@ -12,6 +12,8 @@ signal start_game
 signal open_options
 @warning_ignore("unused_signal")
 signal exit
+@warning_ignore("unused_signal")
+signal load_finished
 
 enum ToolTypes {
 	Hand,

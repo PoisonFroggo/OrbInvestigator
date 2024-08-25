@@ -10,10 +10,10 @@ toolType = 3
 
 [node name="InteractRay" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -3)
+debug_shape_thickness = 1
 
 [node name="shootingRay" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -10)
-debug_shape_thickness = 3
 
 [node name="RemoteTaser" parent="." instance=ExtResource("2_6xn5e")]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.3, -0.15, -0.6)
