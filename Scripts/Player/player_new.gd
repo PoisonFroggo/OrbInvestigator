@@ -17,12 +17,15 @@ class_name Player
 ## Amount by how much lerp moveSpeed to runSpeed and back
 @export var runSmoothing: float = 0.05
 
-@export_group("Menu Variables")
-
 var debugHud: Node
 
 var runSpeed: float = moveSpeed * runPower
 var defaultSpeed: float = moveSpeed
+
+@onready var original_col_height: float = $CollisionShape3D.shape.height
+@onready var original_height: float = $CSGMesh3D.mesh.height
+
+var crouched: bool = false
 
 var tempDirection: Vector3
 
@@ -86,7 +89,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		tempDirection = direction
 		# Handle changing speeds between running and walking
-		if Input.is_action_pressed("run") and is_on_floor():
+		if Input.is_action_pressed("run") and is_on_floor() and not crouched:
 			moveSpeed = lerpf(moveSpeed, runSpeed, runSmoothing)
 		else:
 			moveSpeed = lerpf(moveSpeed, defaultSpeed, runSmoothing)
@@ -104,7 +107,25 @@ func _physics_process(delta: float) -> void:
 		# If direction isn't applied move towards last remembered direction
 		new_velocity = Vector3(tempDirection.x * moveSpeed, velocity.y, tempDirection.z * moveSpeed)
 		velocity = velocity.lerp(new_velocity, inertiaPower)
-
+	
+	if crouched:
+		var current_col_height: float = $CollisionShape3D.shape.height
+		var current_height: float = $CSGMesh3D.mesh.height
+		var new_height = lerpf(current_height, original_height / 2.0, 0.05)
+		var new_col_height = lerpf(current_col_height, original_col_height / 2.0, 0.05)
+		$Camera3D.transform.origin.y = lerpf($Camera3D.transform.origin.y, 0.25, 0.025)
+		
+		$CollisionShape3D.shape.height = new_col_height
+		$CSGMesh3D.mesh.height = new_height
+	elif not crouched:
+		var current_col_height: float = $CollisionShape3D.shape.height
+		var current_height: float = $CSGMesh3D.mesh.height
+		var new_height = lerpf(current_height, original_height, 0.05)
+		var new_col_height = lerpf(current_col_height, original_col_height, 0.05)
+		$Camera3D.transform.origin.y = lerpf($Camera3D.transform.origin.y, 0.75, 0.025)
+		$CollisionShape3D.shape.height = new_col_height
+		$CSGMesh3D.mesh.height = new_height
+	#
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -136,3 +157,8 @@ func _input(event: InputEvent) -> void:
 			viewport.add_child(current_viewmodel)
 		else:
 			print_debug("Tried to select unexisting slot index {slotNum}".format({"slotNum": slot}))
+	
+	if Input.is_action_pressed("crouch"):
+		crouched = true
+	if Input.is_action_just_released("crouch"):
+		crouched = false
