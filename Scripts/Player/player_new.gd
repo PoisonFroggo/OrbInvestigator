@@ -45,7 +45,7 @@ func generate_debug_info() -> Dictionary:
 	var roundPos: Vector3 = Vector3(snappedf(self.global_position.x, 0.01), snappedf(self.global_position.y, 0.01), snappedf(self.global_position.z, 0.01))
 	var roundRot: Vector3 = Vector3(snappedf($Camera3D.global_rotation_degrees.x, 0.01), snappedf($Camera3D.global_rotation_degrees.y, 0.01), snappedf($Camera3D.global_rotation_degrees.z, 0.01))
 	var roundVel: Vector3 = Vector3(snappedf(self.velocity.x, 0.01), snappedf(self.velocity.y, 0.01), snappedf(self.velocity.z, 0.01))
-	return {"debugText": "Position: {playerPos}\nRotation: {playerRot}\nVelocity: {playerVel}\nmoveSpeed: {moveSpeed}\nFPS: {fps}\nRad: {radiation}",
+	return {"debugText": "Position: {playerPos}\nRotation: {playerRot}\nVelocity: {playerVel}\nmoveSpeed: {moveSpeed}\nFPS: {fps}\nRad: {radiation}\n",
 	"formatter": {"playerPos": roundPos, "playerRot": roundRot, "playerVel": roundVel,
 	"moveSpeed": snappedf(moveSpeed, 0.01), "fps": snappedf(Engine.get_frames_per_second(), 0.01), "radiation": radiation}}
 
