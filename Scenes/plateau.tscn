@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://1vm5m1s5ucfw"]
+[gd_scene load_steps=7 format=3 uid="uid://1vm5m1s5ucfw"]
 
 [ext_resource type="PackedScene" uid="uid://bo1jwixhhp7ga" path="res://Assets/Plateau.glb" id="1_m8yqf"]
 [ext_resource type="Texture2D" uid="uid://c3pprb46ic3dy" path="res://Assets/Plateau_Gresstxtr.jpg" id="2_csn3r"]
 [ext_resource type="Texture2D" uid="uid://cprohv3s6jg76" path="res://Assets/Plateau_Concrete.jpg" id="2_y5j8y"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dkwtl1e2pjkht" path="res://Scenes/levels/plateau.occ" id="4_ldhte"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnu3c"]
 albedo_texture = ExtResource("2_y5j8y")
@@ -15,86 +16,92 @@ albedo_texture = ExtResource("2_csn3r")
 [node name="MainEntrance" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_qnu3c")
 
-[node name="Bedframe_col" parent="." index="6"]
+[node name="Bedframe_col" parent="." index="5"]
 mesh = null
 
-[node name="Shitter_col" parent="." index="8"]
+[node name="Shitter_col" parent="." index="7"]
 mesh = null
 
-[node name="Shitter1_col" parent="." index="11"]
+[node name="Shitter1_col" parent="." index="10"]
 mesh = null
 
-[node name="Shitter2_col" parent="." index="13"]
+[node name="Shitter2_col" parent="." index="12"]
 mesh = null
 
-[node name="Shitter3_col" parent="." index="15"]
+[node name="Shitter3_col" parent="." index="14"]
 mesh = null
 
-[node name="Shitter4_col" parent="." index="17"]
+[node name="Shitter4_col" parent="." index="16"]
 mesh = null
 
-[node name="Shitter5_col" parent="." index="19"]
+[node name="Shitter5_col" parent="." index="18"]
 mesh = null
 
-[node name="Bafroom_brokenEntry2_col" parent="." index="20"]
+[node name="Bafroom_brokenEntry2_col" parent="." index="19"]
 mesh = null
 
-[node name="Bafroom_brokenEntry_col" parent="." index="21"]
+[node name="Bafroom_brokenEntry_col" parent="." index="20"]
 mesh = null
 
-[node name="Bafroom" parent="." index="22"]
+[node name="Bafroom" parent="." index="21"]
 mesh = null
 
-[node name="plateau_col" parent="." index="29"]
+[node name="plateau_col" parent="." index="28"]
 mesh = null
 
-[node name="Cube8_col" parent="." index="30"]
+[node name="Cube8_col" parent="." index="29"]
 mesh = null
 
-[node name="Fence_col" parent="." index="31"]
+[node name="MainEntrance_col" parent="." index="30"]
 mesh = null
 
-[node name="MainEntrance_col" parent="." index="32"]
+[node name="Cube5_col" parent="." index="31"]
 mesh = null
 
-[node name="Cube5_col" parent="." index="33"]
+[node name="Cube4_col" parent="." index="32"]
 mesh = null
 
-[node name="Cube4_col" parent="." index="34"]
+[node name="Bridge_col" parent="." index="33"]
 mesh = null
 
-[node name="Bridge_col" parent="." index="35"]
+[node name="Bafroomramp_col" parent="." index="34"]
 mesh = null
 
-[node name="Bafroomramp_col" parent="." index="36"]
-mesh = null
-
-[node name="plateau" parent="." index="38"]
+[node name="plateau" parent="." index="36"]
 material_override = SubResource("StandardMaterial3D_d7wjj")
 
-[node name="Cube7_col" parent="." index="42"]
+[node name="Cube7_col" parent="." index="40"]
 mesh = null
 
-[node name="Bridge1_col" parent="." index="44"]
+[node name="Bridge1_col" parent="." index="42"]
 mesh = null
 
-[node name="Bridge2_col" parent="." index="46"]
+[node name="Bridge2_col" parent="." index="44"]
 mesh = null
 
-[node name="Bridge3_col" parent="." index="48"]
+[node name="Bridge3_col" parent="." index="46"]
 mesh = null
 
-[node name="Bridge4_col" parent="." index="50"]
+[node name="Bridge5_col" parent="." index="52"]
 mesh = null
 
-[node name="Cube6_col" parent="." index="58"]
+[node name="OrbTower_col" parent="." index="65"]
 mesh = null
 
-[node name="Orb_col" parent="." index="69"]
+[node name="Fence_col" parent="." index="66"]
 mesh = null
 
-[node name="OrbTongue_col" parent="." index="70"]
+[node name="OrbTongue_col" parent="." index="67"]
 mesh = null
 
-[node name="OrbTower_col" parent="." index="71"]
+[node name="Cube6_col" parent="." index="68"]
 mesh = null
+
+[node name="Bridge4_col" parent="." index="69"]
+mesh = null
+
+[node name="Orb_col" parent="." index="70"]
+mesh = null
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="71"]
+occluder = ExtResource("4_ldhte")
