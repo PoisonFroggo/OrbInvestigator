@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm4t51rlitjs8"]
+[gd_scene load_steps=13 format=3 uid="uid://dm4t51rlitjs8"]
 
 [ext_resource type="Texture2D" uid="uid://dmgfrmnb56uxv" path="res://Assets/Textures/Prototype/Dark/texture_13.png" id="1_l1p3m"]
 [ext_resource type="Texture2D" uid="uid://b017ggfrmpyj3" path="res://Assets/Textures/Prototype/Red/texture_04.png" id="2_p7nu7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8noabs50pwgx" path="res://Scenes/models/powerbox.tscn" id="5_uug7u"]
 [ext_resource type="PackedScene" uid="uid://dy6kjpcs03jbe" path="res://Scenes/models/door.tscn" id="6_tpqn7"]
 [ext_resource type="PackedScene" uid="uid://cbwr3s2shu7jj" path="res://Scenes/radiation_zone.tscn" id="7_xgjqn"]
+[ext_resource type="PackedScene" uid="uid://dx055er56coct" path="res://Scenes/models/pickable_box.tscn" id="8_wpuno"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg72i"]
 albedo_texture = ExtResource("1_l1p3m")
@@ -92,3 +93,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.397
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.425585, 1.30251, 20.9469)
 size = 2.0
 tick_intervals = 0.5
+
+[node name="Box" parent="." instance=ExtResource("8_wpuno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59506, 2.2927, 11.0435)

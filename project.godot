@@ -45,6 +45,7 @@ needs_wrench=""
 needs_screwdriver=""
 can_charge=""
 debug_info=""
+pickable=""
 
 [input]
 

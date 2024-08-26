@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx055er56coct"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hq50y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c453a"]
+
+[node name="Box" type="RigidBody3D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_hq50y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_c453a")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
