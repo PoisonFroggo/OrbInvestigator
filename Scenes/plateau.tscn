@@ -45,44 +45,56 @@ mesh = null
 [node name="Bafroom" parent="." index="22"]
 mesh = null
 
-[node name="plateau_col" parent="." index="30"]
+[node name="plateau_col" parent="." index="29"]
 mesh = null
 
-[node name="Cube8_col" parent="." index="31"]
+[node name="Cube8_col" parent="." index="30"]
 mesh = null
 
-[node name="Fence_col" parent="." index="32"]
+[node name="Fence_col" parent="." index="31"]
 mesh = null
 
-[node name="MainEntrance_col" parent="." index="33"]
+[node name="MainEntrance_col" parent="." index="32"]
 mesh = null
 
-[node name="Cube5_col" parent="." index="34"]
+[node name="Cube5_col" parent="." index="33"]
 mesh = null
 
-[node name="Cube4_col" parent="." index="35"]
+[node name="Cube4_col" parent="." index="34"]
 mesh = null
 
-[node name="Bridge_col" parent="." index="36"]
+[node name="Bridge_col" parent="." index="35"]
 mesh = null
 
-[node name="Bafroomramp_col" parent="." index="37"]
+[node name="Bafroomramp_col" parent="." index="36"]
 mesh = null
 
-[node name="plateau" parent="." index="39"]
+[node name="plateau" parent="." index="38"]
 material_override = SubResource("StandardMaterial3D_d7wjj")
 
-[node name="Cube7_col" parent="." index="43"]
+[node name="Cube7_col" parent="." index="42"]
 mesh = null
 
-[node name="Bridge1_col" parent="." index="45"]
+[node name="Bridge1_col" parent="." index="44"]
 mesh = null
 
-[node name="Bridge2_col" parent="." index="47"]
+[node name="Bridge2_col" parent="." index="46"]
 mesh = null
 
-[node name="Bridge3_col" parent="." index="49"]
+[node name="Bridge3_col" parent="." index="48"]
 mesh = null
 
-[node name="Cube6_col" parent="." index="50"]
+[node name="Bridge4_col" parent="." index="50"]
+mesh = null
+
+[node name="Cube6_col" parent="." index="58"]
+mesh = null
+
+[node name="Orb_col" parent="." index="69"]
+mesh = null
+
+[node name="OrbTongue_col" parent="." index="70"]
+mesh = null
+
+[node name="OrbTower_col" parent="." index="71"]
 mesh = null
