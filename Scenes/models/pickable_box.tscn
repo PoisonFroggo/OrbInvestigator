@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx055er56coct"]
 
-[ext_resource type="Script" path="res://Scenes/models/pickable_box.gd" id="1_ya0tw"]
+[ext_resource type="Script" path="res://Scripts/pickable_box.gd" id="1_ya0tw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hq50y"]
 

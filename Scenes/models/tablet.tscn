@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://efkc8rwrfs7b"]
+
+[ext_resource type="Script" path="res://Scripts/tablet.gd" id="1_lqs5m"]
+[ext_resource type="PackedScene" uid="uid://dfjh4ms6gjloa" path="res://Scenes/models/iodine_tab.tscn" id="2_0wvf1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h6f1b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_imwox"]
+size = Vector3(0.501709, 0.0894775, 0.513779)
+
+[node name="Tablet" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_h6f1b")
+script = ExtResource("1_lqs5m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00109863, 0.00286865, 0.00075531)
+shape = SubResource("BoxShape3D_imwox")
+
+[node name="IodineTab" parent="." instance=ExtResource("2_0wvf1")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

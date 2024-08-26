@@ -19,6 +19,8 @@ class_name Player
 
 var debugHud: Node
 
+var tablets: int = 5
+
 var runSpeed: float = moveSpeed * runPower
 var defaultSpeed: float = moveSpeed
 
@@ -69,7 +71,19 @@ func _ready() -> void:
 		current_viewmodel = inventory[0]
 		viewport.add_child(current_viewmodel)
 
+	$TabletCooldown.timeout.connect(func(): $TabletTick.stop())
+	$TabletTick.timeout.connect(decayTick)
+
+func decayTick():
+	radiation -= 0.03
+	radiation = clampf(radiation, 0.0, 1.0)
+	if radiation < 0.001:
+		$TabletTick.stop()
+
 func _process(_delta: float) -> void:
+	
+	$TabletsHud/MarginContainer/Amount.text = "Tablets: %s" % tablets
+	
 	radiation = clampf(radiation, 0.0, 1.0)
 	var rad_progress: float = 1.0 - (radiation / 100.0)
 	# Setting radiation shaders parameters based on radiation
@@ -157,6 +171,12 @@ func _input(event: InputEvent) -> void:
 			viewport.add_child(current_viewmodel)
 		else:
 			print_debug("Tried to select unexisting slot index {slotNum}".format({"slotNum": slot}))
+	
+	if Input.is_action_just_pressed("tablet") and $TabletCooldown.is_stopped() and tablets and radiation > 0.0:
+		tablets -= 1
+		$SFX.play()
+		$TabletCooldown.start()
+		$TabletTick.start()
 	
 	if Input.is_action_pressed("crouch"):
 		crouched = true

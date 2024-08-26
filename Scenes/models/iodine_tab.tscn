@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfjh4ms6gjloa"]
+
+[ext_resource type="PackedScene" uid="uid://ddpcwieonts2l" path="res://Assets/IodineTab.glb" id="1_3rsen"]
+
+[node name="IodineTab" instance=ExtResource("1_3rsen")]
+
+[node name="Cylinder" parent="." index="0"]
+layers = 1
