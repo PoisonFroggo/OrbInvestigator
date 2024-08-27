@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cud3t2vyil57k" path="res://Scenes/player_new.tscn" id="2_tfe4q"]
 [ext_resource type="Texture2D" uid="uid://dv2ljir1ipn2j" path="res://Assets/Textures/Prototype/Orange/texture_03.png" id="3_nf0wp"]
 [ext_resource type="PackedScene" uid="uid://b8noabs50pwgx" path="res://Scenes/models/powerbox.tscn" id="5_uug7u"]
-[ext_resource type="PackedScene" uid="uid://dy6kjpcs03jbe" path="res://Scenes/models/door.tscn" id="6_tpqn7"]
+[ext_resource type="PackedScene" path="res://Scenes/models/door.tscn" id="6_tpqn7"]
 [ext_resource type="PackedScene" uid="uid://cbwr3s2shu7jj" path="res://Scenes/radiation_zone.tscn" id="7_xgjqn"]
 [ext_resource type="PackedScene" uid="uid://dx055er56coct" path="res://Scenes/models/pickable_box.tscn" id="8_wpuno"]
-[ext_resource type="PackedScene" uid="uid://efkc8rwrfs7b" path="res://Scenes/models/tablet.tscn" id="9_xbl4y"]
+[ext_resource type="PackedScene" uid="uid://dybsudhyacip8" path="res://Scenes/models/tablet.tscn" id="9_xbl4y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg72i"]
 albedo_texture = ExtResource("1_l1p3m")

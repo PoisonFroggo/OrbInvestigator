@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddd3iuxlaigw7"]
+[gd_scene load_steps=4 format=3 uid="uid://diph17x4bm7nr"]
 
 [ext_resource type="PackedScene" uid="uid://1vm5m1s5ucfw" path="res://Scenes/plateau.tscn" id="1_3n0k6"]
 [ext_resource type="PackedScene" uid="uid://cud3t2vyil57k" path="res://Scenes/player_new.tscn" id="2_a8c6a"]
+[ext_resource type="PackedScene" uid="uid://dwwuotg8yhqte" path="res://Scenes/hanging_light.tscn" id="3_6ti2n"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -9,3 +10,9 @@
 
 [node name="Player" parent="." instance=ExtResource("2_a8c6a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.1357, 4.39851, -12.1836)
+
+[node name="HangingLight" parent="." instance=ExtResource("3_6ti2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.2422, 7.25312, -17.039)
+
+[node name="HangingLight2" parent="." instance=ExtResource("3_6ti2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.0349, 7.42672, -19.6813)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://efkc8rwrfs7b"]
+[gd_scene load_steps=5 format=3 uid="uid://dybsudhyacip8"]
 
 [ext_resource type="Script" path="res://Scripts/tablet.gd" id="1_lqs5m"]
-[ext_resource type="PackedScene" uid="uid://dfjh4ms6gjloa" path="res://Scenes/models/iodine_tab.tscn" id="2_0wvf1"]
+[ext_resource type="PackedScene" path="res://Scenes/models/iodine_tab.tscn" id="2_0wvf1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h6f1b"]
 
@@ -10,6 +10,7 @@ size = Vector3(0.501709, 0.0894775, 0.513779)
 
 [node name="Tablet" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_h6f1b")
+continuous_cd = true
 script = ExtResource("1_lqs5m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

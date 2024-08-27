@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwwuotg8yhqte"]
+
+[ext_resource type="PackedScene" uid="uid://c17gwrnd075gw" path="res://Assets/HangingLight.glb" id="1_gbkss"]
+
+[node name="HangingLight" instance=ExtResource("1_gbkss")]
+
+[node name="Sphere" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Sphere" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.1, 0)
+spot_range = 22.8409
+spot_angle = 49.4256
