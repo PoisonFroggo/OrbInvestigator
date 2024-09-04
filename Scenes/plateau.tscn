@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://1vm5m1s5ucfw"]
+[gd_scene load_steps=12 format=4 uid="uid://1vm5m1s5ucfw"]
 
 [ext_resource type="PackedScene" uid="uid://bo1jwixhhp7ga" path="res://Assets/Plateau.glb" id="1_m8yqf"]
 [ext_resource type="Texture2D" uid="uid://c3pprb46ic3dy" path="res://Assets/Plateau_Gresstxtr.jpg" id="2_csn3r"]
 [ext_resource type="Texture2D" uid="uid://cprohv3s6jg76" path="res://Assets/Plateau_Concrete.jpg" id="2_y5j8y"]
 [ext_resource type="Texture2D" uid="uid://codecsa5tklru" path="res://Assets/Plateau_AIWoodlol.jpg" id="4_3c3mi"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnu3c"]
-albedo_texture = ExtResource("2_y5j8y")
+[ext_resource type="Script" path="res://Scenes/door.gd" id="4_3f3bd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7wjj"]
 albedo_texture = ExtResource("2_csn3r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnu3c"]
+albedo_texture = ExtResource("2_y5j8y")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dbsb"]
 resource_name = "WoodMat"
@@ -56,101 +57,83 @@ data = PackedVector3Array(-1.8496, -1, -0.46736, -2.21382, -0.119141, -0.46736, 
 
 [node name="Plateau" instance=ExtResource("1_m8yqf")]
 
-[node name="MainEntrance" parent="." index="0"]
-material_override = SubResource("StandardMaterial3D_qnu3c")
-
-[node name="Bedframe_col" parent="." index="4"]
+[node name="Bedframe_col" parent="." index="3"]
 mesh = null
 
-[node name="Shitter_col" parent="." index="6"]
+[node name="Shitter_col" parent="." index="5"]
 mesh = null
 
-[node name="Shitter1_col" parent="." index="9"]
+[node name="Shitter1_col" parent="." index="8"]
 mesh = null
 
-[node name="Shitter2_col" parent="." index="11"]
+[node name="Shitter2_col" parent="." index="10"]
 mesh = null
 
-[node name="Shitter3_col" parent="." index="13"]
+[node name="Shitter3_col" parent="." index="12"]
 mesh = null
 
-[node name="Shitter4_col" parent="." index="15"]
+[node name="Shitter4_col" parent="." index="14"]
 mesh = null
 
-[node name="Shitter5_col" parent="." index="17"]
+[node name="Shitter5_col" parent="." index="16"]
 mesh = null
 
-[node name="Bafroom_brokenEntry2_col" parent="." index="18"]
+[node name="Bafroom_brokenEntry2_col" parent="." index="17"]
 mesh = null
 
-[node name="Bafroom_brokenEntry_col" parent="." index="19"]
+[node name="Bafroom_brokenEntry_col" parent="." index="18"]
 mesh = null
 
-[node name="Bafroom" parent="." index="20"]
+[node name="Bafroom" parent="." index="19"]
 mesh = null
 
-[node name="plateau_col" parent="." index="25"]
-mesh = null
-
-[node name="Cube8_col" parent="." index="26"]
-mesh = null
-
-[node name="MainEntrance_col" parent="." index="27"]
-mesh = null
-
-[node name="Cube5_col" parent="." index="28"]
-mesh = null
-
-[node name="Cube4_col" parent="." index="29"]
-mesh = null
-
-[node name="Bridge_col" parent="." index="30"]
-mesh = null
-
-[node name="Bafroomramp_col" parent="." index="31"]
-mesh = null
-
-[node name="plateau" parent="." index="33"]
+[node name="plateau" parent="." index="22"]
 material_override = SubResource("StandardMaterial3D_d7wjj")
 
-[node name="Cube7_col" parent="." index="37"]
+[node name="Cube8_col" parent="." index="23"]
 mesh = null
 
-[node name="Bridge1_col" parent="." index="39"]
+[node name="MainEntrance" parent="." index="24"]
+material_override = SubResource("StandardMaterial3D_qnu3c")
+
+[node name="Bafroomramp_col" parent="." index="26"]
 mesh = null
 
-[node name="Bridge2_col" parent="." index="41"]
+[node name="Bridge1_col" parent="." index="33"]
 mesh = null
 
-[node name="Bridge3_col" parent="." index="43"]
+[node name="Bridge2_col" parent="." index="35"]
 mesh = null
 
-[node name="Bridge6_col" parent="." index="47"]
+[node name="Bridge3_col" parent="." index="37"]
 mesh = null
 
-[node name="Bridge5_col" parent="." index="49"]
+[node name="Bridge6_col" parent="." index="41"]
 mesh = null
 
-[node name="WoodFence_col" parent="." index="51"]
+[node name="Bridge5_col" parent="." index="43"]
 mesh = null
 
-[node name="OrbMouth" parent="." index="58"]
+[node name="OrbMouth" parent="." index="50"]
 transform = Transform3D(62.4304, 0, 0, 0, 62.4304, 0, 0, 0, 62.4304, 532.919, 178.489, -103.969)
 
-[node name="OrbTower_col" parent="." index="62"]
+[node name="OrbTower_col" parent="." index="54"]
 mesh = null
 
-[node name="OrbTongue_col" parent="." index="63"]
+[node name="OrbTongue_col" parent="." index="55"]
 mesh = null
 
-[node name="Cube6_col" parent="." index="64"]
+[node name="Cube6_col" parent="." index="56"]
 mesh = null
 
-[node name="Bridge4_col" parent="." index="65"]
+[node name="Bridge4_col" parent="." index="57"]
 mesh = null
 
-[node name="Orb_col" parent="." index="66"]
+[node name="Orb_col" parent="." index="58"]
 mesh = null
+
+[node name="Door" parent="." index="93"]
+script = ExtResource("4_3f3bd")
 
 [node name="WoodFence2" type="MeshInstance3D" parent="." index="94"]
 transform = Transform3D(3.18143, 0, 0.83671, 0, 5.95557, 0, -4.09186, 0, -0.289385, 10.545, 3.61234, -4.44114)
